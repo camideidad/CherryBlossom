@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas de cocina Rin & Len</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body.fondo-recetas {
+            background-image: url("./fondoicon.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .pagina-categorias,
+        .pagina-recetas,
+        .pagina-detalle {
+            width: 100%;
+            text-align: center;
+            padding: 25px 10px;
+            box-sizing: border-box;
+        }
+
+        .pagina-categorias h1,
+        .pagina-recetas h1 {
+            color: #874F4A;
+        }
+
+        .titulo-categoria {
+            color: #B96F70;
+            font-size: 30px;
+        }
+
+        .boton-regresar {
+            margin: 25px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenedor">
+
+            <p class="decoracion">♡ BIENVENIDOS A NUESTRA COCINA ♡</p>
+
+            <h1 class="titulo-principal">
+                Recetas de cocina Rin & Len
+            </h1>
+
+            <p>
+                Descubre recetas deliciosas, postres y bebidas
+                preparadas con mucho amor.
+            </p>
+
+            <button class="boton-redireccion" onclick="mostrarCategorias()">
+                ♡ Iniciar ♡
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- MENU DE CATEGORIAS -->
+    <section id="categorias" class="pagina-categorias" hidden>
+
+        <h1 class="titulo-principal">♡ Nuestro recetario ♡</h1>
+        <p>Elige la categoría que más te guste.</p>
+
+        <div class="tarjetas">
+
+<button class="btn-favoritos" onclick="mostrarFavoritos()">
+    ♡ Mis favoritas ♡
+</button>
+
+            <button class="tarjeta" onclick="mostrarRecetas('Postres')">
+                <span class="emoji">🍰</span>
+                <h2>Postres</h2>
+                <p>Pasteles, galletas y dulces.</p>
+                <span class="ver-mas">Entrar ♡</span>
+            </button>
+
+            <button class="tarjeta" onclick="mostrarRecetas('Bebidas')">
+                <span class="emoji">🥤</span>
+                <h2>Bebidas</h2>
+                <p>Limonadas, jugos y bebidas.</p>
+                <span class="ver-mas">Entrar ♡</span>
+            </button>
+
+            <button class="tarjeta" onclick="mostrarPaisesComidas()">
+    <span class="emoji">🍝</span>
+    <h2>Comidas</h2>
+    <p>Platillos de diferentes países.</p>
+    <span class="ver-mas">Entrar ♡</span>
+</button>
+
+            <button class="tarjeta" onclick="mostrarRecetas('Dietas')">
+                <span class="emoji">🥗</span>
+                <h2>Dietas</h2>
+                <p>Ideas variadas y equilibradas.</p>
+                <span class="ver-mas">Entrar ♡</span>
+            </button>
+
+        </div>
+
+        <button class="boton-redireccion boton-regresar" onclick="volverInicio()">
+            ♡ Volver al inicio
+        </button>
+
+        <button class="boton-redireccion" onclick="mostrarPerfilChef()">
+    👩‍🍳 Mi perfil de chef
+</button>
+
+    </section>
+
+<!-- PAISES DE COMIDAS -->
+<section id="paises-comidas" class="pagina-categorias" hidden>
+
+    <h1 class="titulo-principal">♡ Comidas del mundo ♡</h1>
+    <p>Elige el país que quieres conocer.</p>
+
+    <div class="tarjetas">
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Japón')">
+            <span class="emoji">🇯🇵</span>
+            <h2>Japón</h2>
+            <p>Ramen, sushi y mucho más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - México')">
+            <span class="emoji">🇲🇽</span>
+            <h2>México</h2>
+            <p>Tacos, enchiladas y antojitos.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Italia')">
+            <span class="emoji">🇮🇹</span>
+            <h2>Italia</h2>
+            <p>Pastas, pizzas y más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Corea del Sur')">
+            <span class="emoji">🇰🇷</span>
+            <h2>Corea del Sur</h2>
+            <p>Bibimbap, kimbap y más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Estados Unidos')">
+            <span class="emoji">🇺🇸</span>
+            <h2>Estados Unidos</h2>
+            <p>Hamburguesas y otros platillos.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - España')">
+            <span class="emoji">🇪🇸</span>
+            <h2>España</h2>
+            <p>Paella, croquetas y más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - India')">
+            <span class="emoji">🇮🇳</span>
+            <h2>India</h2>
+            <p>Curry, biryani y samosas.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - China')">
+            <span class="emoji">🇨🇳</span>
+            <h2>China</h2>
+            <p>Dumplings, fideos y arroz.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Perú')">
+            <span class="emoji">🇵🇪</span>
+            <h2>Perú</h2>
+            <p>Ceviche, lomo saltado y más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+        <button class="tarjeta" onclick="mostrarRecetas('Comidas - Francia')">
+            <span class="emoji">🇫🇷</span>
+            <h2>Francia</h2>
+            <p>Quiches, crepas y más.</p>
+            <span class="ver-mas">Ver comidas ♡</span>
+        </button>
+
+    </div>
+
+    <button class="boton-redireccion boton-regresar" onclick="volverCategorias()">
+        ♡ Volver a categorías
+    </button>
+
+</section>
+    <!-- LISTA DE RECETAS -->
+    <section id="recetas" class="pagina-recetas" hidden>
+
+        <h1 class="titulo-principal" id="titulo-categoria">
+            Nuestras recetas ♡
+        </h1>
+
+        <p>¡Elige algo delicioso para preparar!</p>
+
+        <div id="lista-recetas" class="tarjetas"></div>
+
+        <button class="boton-redireccion boton-regresar" onclick="volverCategorias()">
+            ♡ Volver a categorías
+        </button>
+
+    </section>
+
+
+    <!-- DETALLES DE RECETA -->
+    <section id="detalle" class="pagina-detalle" hidden>
+
+        <div id="contenido-detalle"></div>
+
+        <button class="boton-redireccion" onclick="volverRecetas()">
+            ♡ Volver a las recetas
+        </button>
+
+    </section>
+
+    <!-- DETALLES DE RECETA -->
+<section id="detalle" class="pagina-detalle" hidden>
+
+    <div id="contenido-detalle"></div>
+
+    <button class="boton-redireccion" onclick="volverRecetas()">
+        ♡ Volver a las recetas
+    </button>
+
+</section>
+
+<!-- DETALLES DE RECETA -->
+<section id="detalle" class="pagina-detalle" hidden>
+
+    <div id="contenido-detalle"></div>
+
+    <button class="boton-redireccion" onclick="volverRecetas()">
+        ♡ Volver a las recetas
+    </button>
+
+</section>
+
+<!-- MIS RECETAS FAVORITAS -->
+<section id="favoritos" hidden>
+
+    <h1 class="titulo-principal">♡ Mis recetas favoritas ♡</h1>
+
+    <p>Todas tus recetas guardadas en un solo lugar.</p>
+
+    <div id="lista-favoritos"></div>
+
+    <button class="boton-redireccion" onclick="mostrarCategorias()">
+        Volver a categorías
+    </button>
+
+</section>
+
+<!-- PERFIL DE CHEF RIN & LEN -->
+<section id="perfil-chef" hidden>
+
+    <div class="perfil-chef-contenedor">
+
+        <h1 class="titulo-principal">♡ Mi perfil de chef ♡</h1>
+
+        <div class="perfil-chef-avatar" id="avatar-perfil">
+            👩‍🍳
+        </div>
+
+        <h2 id="nombre-perfil">Mi pequeño rincón de cocina</h2>
+        <p id="descripcion-perfil">¡Bienvenida a mi cocina! ♡</p>
+
+        <div class="perfil-chef-formulario">
+
+            <label for="nombre-chef">Mi nombre:</label>
+            <input
+                type="text"
+                id="nombre-chef"
+                placeholder="Escribe tu nombre">
+
+<label>♡ Elige tu foto de perfil ♡</label>
+
+
+<div class="galeria-avatares">
+
+    <button class="avatar-opcion" onclick="seleccionarAvatarChef('chica_chef.png')">
+        <img src="rin_len_avatares/avatares/chica_chef.png" alt="Chica chef">
+    </button>
+
+    <button class="avatar-opcion" onclick="seleccionarAvatarChef('chica_cupcake_mint.png')">
+        <img src="rin_len_avatares/avatares/chica_cupcake_mint.png" alt="Chica cupcake mint">
+    </button>
+
+    <button class="avatar-opcion" onclick="seleccionarAvatarChef('chica_gatita_cereza.png')">
+        <img src="rin_len_avatares/avatares/chica_gatita_cereza.png" alt="Chica gatita cereza">
+    </button>
+
+    <button class="avatar-opcion" onclick="seleccionarAvatarChef('chica_zorrita_postre.png')">
+        <img src="rin_len_avatares/avatares/chica_zorrita_postre.png" alt="Chica zorrita postre">
+    </button>
+
+    <button class="avatar-opcion" onclick="seleccionarAvatarChef('chico_navidad.png')">
+        <img src="rin_len_avatares/avatares/chico_navidad.png" alt="Chico Navidad">
+    </button>
+
+</div>
+
+
+            <label for="descripcion-chef">Mi descripción:</label>
+            <textarea
+                id="descripcion-chef"
+                placeholder="Cuéntanos algo sobre ti y tu amor por la cocina..."></textarea>
+
+            <button class="boton-redireccion" onclick="guardarPerfilChef()">
+                Guardar mi perfil ♡
+            </button>
+
+        </div>
+
+        <h2>♡ Mis estadísticas ♡</h2>
+
+        <div class="estadisticas-chef">
+
+            <div class="estadistica-chef">
+                <span>♡</span>
+                <strong id="total-favoritas">0</strong>
+                <p>Favoritas</p>
+            </div>
+
+            <div class="estadistica-chef">
+                <span>★</span>
+                <strong id="total-calificadas">0</strong>
+                <p>Calificadas</p>
+            </div>
+
+            <div class="estadistica-chef">
+                <span>☆</span>
+                <strong id="promedio-chef">0</strong>
+                <p>Promedio</p>
+            </div>
+
+        </div>
+
+        <h2>♡ Mis recetas favoritas ♡</h2>
+        <div id="perfil-lista-favoritas"></div>
+
+        <h2>♡ Recetas que he calificado ♡</h2>
+        <div id="perfil-lista-calificadas"></div>
+
+        <button
+            class="boton-redireccion"
+            onclick="document.getElementById('perfil-chef').hidden = true; mostrarCategorias();">
+            Volver a categorías ♡
+        </button>
+
+    </div>
+
+</section>
+
+    <script>
+
+        // TODAS LAS RECETAS
+// FUNCION PARA CREAR COMIDAS INTERNACIONALES
+
+function crearComida(pais, nombre, emoji, descripcion, ingredientes, procedimiento) {
+    return {
+        nombre: nombre,
+        categoria: "Comidas - " + pais,
+        emoji: emoji,
+        descripcion: descripcion,
+        ingredientes: ingredientes.split("|"),
+        procedimiento: procedimiento.split("|")
+    };
+}
+
+// COMIDAS INTERNACIONALES
+
+const comidasInternacionales = [
+
+    // MEXICO 🇲🇽
+    crearComida("México", "Tacos al pastor", "🌮", "Tacos mexicanos preparados con piña y carne marinada.", "Tortillas|Carne de cerdo|Piña|Cebolla|Cilantro|Salsa", "Cocina completamente la carne con ayuda de un adulto.|Corta la piña y la cebolla.|Calienta las tortillas.|Sirve la carne con piña, cebolla y cilantro."),
+    crearComida("México", "Enchiladas verdes", "🌯", "Tortillas rellenas de pollo con salsa verde.", "Tortillas|Pollo cocido|Tomatillos|Chile verde|Crema|Queso", "Prepara la salsa con tomatillos cocidos y chile.|Licúa los ingredientes.|Rellena las tortillas con pollo.|Agrega la salsa, crema y queso."),
+    crearComida("México", "Chilaquiles rojos", "🍅", "Totopos bañados en salsa roja.", "Totopos|Jitomates|Chile guajillo|Cebolla|Queso|Crema", "Prepara la salsa con jitomate y chile.|Licúa los ingredientes.|Calienta la salsa con ayuda de un adulto.|Agrega los totopos y decora con queso y crema."),
+    crearComida("México", "Pozole rojo", "🍲", "Caldo mexicano preparado con maíz y carne.", "Maíz pozolero|Carne de pollo cocida|Chile guajillo|Ajo|Lechuga|Rábanos", "Cocina el maíz según las instrucciones del paquete.|Prepara la salsa de chile.|Agrega la salsa y el pollo completamente cocido.|Sirve con lechuga y rábanos."),
+    crearComida("México", "Tamales de pollo", "🫔", "Masa de maíz rellena de pollo y salsa.", "Masa para tamales|Pollo cocido|Hojas de maíz|Salsa verde|Caldo", "Remoja las hojas de maíz.|Prepara la masa.|Coloca masa y pollo en cada hoja.|Agrega salsa y dobla.|Con ayuda de un adulto, cocina al vapor hasta que estén listos."),
+    crearComida("México", "Sopes mexicanos", "🫓", "Antojitos mexicanos con frijoles y verduras.", "Masa de maíz|Frijoles cocidos|Lechuga|Queso|Crema|Salsa", "Forma pequeñas tortillas gruesas.|Cocínalas con ayuda de un adulto.|Levanta los bordes.|Agrega frijoles, lechuga, queso y crema."),
+    crearComida("México", "Tostadas de tinga", "🥙", "Tostadas crujientes con pollo deshebrado.", "Tostadas|Pollo cocido|Jitomate|Cebolla|Chipotle|Lechuga", "Licúa jitomate con un poco de chipotle.|Cocina la cebolla y agrega la salsa.|Añade el pollo deshebrado.|Sirve sobre tostadas con lechuga."),
+    crearComida("México", "Mole poblano", "🍗", "Platillo tradicional con una salsa espesa y sabrosa.", "Pollo cocido|Mole preparado|Caldo de pollo|Ajonjolí|Arroz", "Coloca el mole preparado en una olla.|Agrega poco a poco el caldo.|Mezcla hasta obtener una salsa suave.|Sirve sobre el pollo completamente cocido y acompaña con arroz."),
+    crearComida("México", "Pambazos", "🥪", "Pan relleno de papa y chorizo.", "Pan para pambazo|Papa cocida|Chorizo bien cocido|Lechuga|Crema|Queso", "Machaca la papa cocida.|Mezcla con el chorizo completamente cocido.|Rellena el pan.|Calienta con ayuda de un adulto y agrega lechuga, crema y queso."),
+    crearComida("México", "Chiles rellenos", "🌶️", "Chiles rellenos de queso acompañados de salsa.", "Chiles poblanos|Queso|Jitomate|Cebolla|Ajo|Sal", "Prepara los chiles con ayuda de un adulto.|Retira las semillas.|Rellena con queso.|Prepara una salsa de jitomate.|Sirve los chiles con la salsa."),
+
+    // ITALIA 🇮🇹
+    crearComida("Italia", "Lasaña", "🍝", "Capas de pasta con carne y queso.", "Láminas de lasaña|Carne molida bien cocida|Salsa de tomate|Queso mozzarella|Queso parmesano", "Prepara la salsa con carne completamente cocida.|Coloca una capa de salsa en un molde.|Agrega pasta, salsa y queso.|Repite las capas.|Hornea con ayuda de un adulto hasta que esté caliente y cocida."),
+    crearComida("Italia", "Pizza margarita", "🍕", "Pizza italiana con tomate, queso y albahaca.", "Masa para pizza|Salsa de tomate|Queso mozzarella|Albahaca|Aceite de oliva", "Extiende la masa.|Agrega salsa de tomate.|Coloca el queso.|Hornea con ayuda de un adulto hasta que la masa esté cocida.|Decora con albahaca."),
+    crearComida("Italia", "Risotto de champiñones", "🍄", "Arroz cremoso con champiñones.", "Arroz para risotto|Champiñones|Caldo de verduras|Cebolla|Queso parmesano", "Pica la cebolla y los champiñones.|Cocina la cebolla con ayuda de un adulto.|Agrega el arroz y el caldo poco a poco.|Incorpora los champiñones y el queso."),
+    crearComida("Italia", "Espagueti a la carbonara", "🍝", "Pasta cremosa inspirada en la cocina italiana.", "Espagueti|Huevo|Queso parmesano|Pimienta|Panceta cocida opcional", "Cuece el espagueti.|Mezcla el huevo con el queso.|Agrega la pasta caliente y mezcla rápidamente.|Añade panceta completamente cocida si lo deseas."),
+    crearComida("Italia", "Gnocchi de papa", "🥔", "Pequeñas piezas de papa y harina.", "Papas|Harina|Huevo|Sal|Salsa de tomate", "Cuece y machaca las papas.|Mezcla con harina y huevo.|Forma pequeñas piezas.|Con ayuda de un adulto, cuécelas en agua hasta que floten.|Sirve con salsa."),
+    crearComida("Italia", "Ravioles de queso", "🧀", "Pasta rellena de queso.", "Pasta para ravioles|Queso ricotta|Queso parmesano|Salsa de tomate|Albahaca", "Mezcla los quesos.|Rellena la pasta y sella los bordes.|Cocina siguiendo las instrucciones del paquete.|Sirve con salsa de tomate."),
+    crearComida("Italia", "Fettuccine Alfredo", "🍝", "Pasta con salsa cremosa de queso.", "Fettuccine|Crema|Mantequilla|Queso parmesano|Pimienta", "Cuece la pasta.|Calienta la mantequilla y la crema con ayuda de un adulto.|Agrega el queso.|Incorpora la pasta y mezcla."),
+    crearComida("Italia", "Minestrone", "🥣", "Sopa italiana con verduras y pasta.", "Zanahoria|Calabacita|Jitomate|Frijoles cocidos|Pasta pequeña|Caldo de verduras", "Corta las verduras.|Coloca el caldo en una olla.|Agrega las verduras y los frijoles.|Añade la pasta y cocina hasta que esté suave."),
+    crearComida("Italia", "Arancini", "🍚", "Bolitas de arroz rellenas de queso.", "Arroz cocido|Queso mozzarella|Huevo|Pan molido|Salsa de tomate", "Deja enfriar el arroz.|Coloca queso en el centro de una porción.|Forma bolitas.|Pasa por huevo y pan molido.|Con ayuda de un adulto, cocina hasta dorar y sirve con salsa."),
+    crearComida("Italia", "Ensalada caprese", "🍅", "Ensalada fresca de tomate, queso y albahaca.", "Tomates|Queso mozzarella|Albahaca|Aceite de oliva|Sal", "Lava los tomates y la albahaca.|Corta el tomate y el queso en rodajas.|Acomoda alternando los ingredientes.|Agrega aceite de oliva y sal."),
+
+    // COREA DEL SUR 🇰🇷
+    crearComida("Corea del Sur", "Bibimbap", "🍚", "Arroz coreano acompañado de verduras.", "Arroz cocido|Zanahoria|Espinaca|Champiñones|Huevo bien cocido|Salsa de soya", "Prepara el arroz.|Cocina las verduras por separado.|Cocina completamente el huevo.|Coloca todo sobre el arroz y agrega salsa de soya."),
+    crearComida("Corea del Sur", "Bulgogi", "🥩", "Carne marinada al estilo coreano.", "Carne de res en tiras|Salsa de soya|Ajo|Pera|Cebolla|Arroz", "Mezcla salsa de soya, ajo y pera triturada.|Agrega la carne y refrigera para marinar.|Cocina completamente con ayuda de un adulto.|Sirve con arroz."),
+    crearComida("Corea del Sur", "Kimbap", "🍙", "Rollos coreanos de arroz y verduras.", "Arroz cocido|Alga nori|Zanahoria|Pepino|Huevo bien cocido|Surimi", "Extiende el arroz sobre el alga.|Agrega las verduras y el huevo cocido.|Enrolla cuidadosamente.|Corta en porciones con ayuda de un adulto."),
+    crearComida("Corea del Sur", "Japchae", "🍜", "Fideos coreanos con verduras.", "Fideos de camote|Zanahoria|Espinaca|Champiñones|Salsa de soya|Aceite de ajonjolí", "Cocina los fideos según el paquete.|Corta y cocina las verduras.|Mezcla todo con salsa de soya.|Agrega un poco de aceite de ajonjolí."),
+    crearComida("Corea del Sur", "Tteokbokki", "🍲", "Pasteles de arroz coreanos en salsa.", "Pasteles de arroz|Caldo de verduras|Pasta de chile suave|Salsa de soya|Cebollín", "Prepara el caldo.|Agrega la pasta de chile suave y la salsa de soya.|Incorpora los pasteles de arroz.|Cocina hasta que estén suaves y la salsa espese."),
+    crearComida("Corea del Sur", "Mandu", "🥟", "Empanaditas coreanas rellenas.", "Discos para empanaditas|Carne molida bien cocida|Col|Zanahoria|Salsa de soya", "Mezcla las verduras con la carne completamente cocida.|Rellena los discos.|Sella los bordes.|Cocina con ayuda de un adulto hasta que estén bien cocidos."),
+    crearComida("Corea del Sur", "Kimchi jjigae suave", "🥣", "Guiso coreano de verduras y tofu.", "Kimchi|Tofu|Caldo de verduras|Cebolla|Champiñones", "Corta las verduras y el tofu.|Coloca el caldo en una olla.|Agrega el kimchi y las verduras.|Añade el tofu y cocina hasta que esté caliente."),
+    crearComida("Corea del Sur", "Pajeon", "🥞", "Tortita coreana de cebollín.", "Harina|Agua|Huevo|Cebollín|Zanahoria", "Mezcla la harina con agua y huevo.|Agrega el cebollín y la zanahoria.|Cocina porciones en una sartén con ayuda de un adulto.|Voltea hasta que esté cocida."),
+    crearComida("Corea del Sur", "Bulgogi de pollo", "🍗", "Pollo marinado con sabores coreanos.", "Pollo en tiras|Salsa de soya|Ajo|Miel|Cebolla|Arroz", "Mezcla salsa de soya, ajo y miel.|Agrega el pollo y refrigera.|Cocina completamente con ayuda de un adulto.|Sirve con arroz."),
+    crearComida("Corea del Sur", "Gyeran mari", "🍳", "Tortilla coreana enrollada.", "Huevos|Zanahoria|Cebollín|Sal", "Bate los huevos.|Pica finamente las verduras.|Mezcla todo.|Cocina capas delgadas y enróllalas con ayuda de un adulto hasta que el huevo esté bien cocido."),
+
+    // ESTADOS UNIDOS 🇺🇸
+    crearComida("Estados Unidos", "Hamburguesa clásica", "🍔", "Hamburguesa con queso y verduras.", "Pan de hamburguesa|Carne para hamburguesa|Queso|Lechuga|Tomate", "Cocina completamente la carne con ayuda de un adulto.|Tuesta ligeramente el pan.|Agrega la carne y el queso.|Añade lechuga y tomate."),
+    crearComida("Estados Unidos", "Mac and cheese", "🧀", "Pasta con salsa cremosa de queso.", "Macarrones|Leche|Queso cheddar|Mantequilla|Harina", "Cuece los macarrones.|Prepara una salsa con mantequilla, harina y leche.|Agrega el queso.|Mezcla con la pasta."),
+    crearComida("Estados Unidos", "Hot dogs", "🌭", "Pan con salchicha y acompañamientos.", "Pan para hot dog|Salchichas|Mostaza|Catsup|Cebolla", "Calienta las salchichas siguiendo las instrucciones del paquete.|Colócalas en el pan.|Agrega mostaza, catsup y cebolla."),
+    crearComida("Estados Unidos", "Grilled cheese", "🥪", "Sándwich tostado con queso derretido.", "Pan de caja|Queso|Mantequilla", "Unta mantequilla en el pan.|Coloca el queso entre las rebanadas.|Con ayuda de un adulto, calienta en una sartén.|Voltea hasta que el pan esté dorado y el queso derretido."),
+    crearComida("Estados Unidos", "Pollo estilo BBQ", "🍗", "Pollo con salsa barbacoa.", "Piezas de pollo|Salsa BBQ|Ajo|Pimienta|Papas", "Unta el pollo con salsa BBQ.|Colócalo en un refractario.|Hornea con ayuda de un adulto hasta que esté completamente cocido.|Sirve con papas."),
+    crearComida("Estados Unidos", "Pastel de carne", "🥧", "Preparación horneada de carne molida.", "Carne molida|Huevo|Pan molido|Cebolla|Salsa de tomate", "Mezcla la carne con huevo y pan molido.|Agrega cebolla picada.|Coloca en un molde.|Hornea con ayuda de un adulto hasta que esté completamente cocido."),
+    crearComida("Estados Unidos", "Chicken pot pie", "🥧", "Pastel salado relleno de pollo y verduras.", "Masa para pay|Pollo cocido|Zanahoria|Chícharos|Crema", "Mezcla el pollo con las verduras y la crema.|Coloca el relleno en un molde.|Cubre con masa.|Hornea con ayuda de un adulto hasta que la masa esté cocida."),
+    crearComida("Estados Unidos", "Ensalada César", "🥗", "Ensalada de lechuga con aderezo y queso.", "Lechuga|Crutones|Queso parmesano|Aderezo César|Pollo cocido opcional", "Lava y desinfecta la lechuga.|Córtala en trozos.|Agrega crutones y queso.|Añade el aderezo y pollo completamente cocido si lo deseas."),
+    crearComida("Estados Unidos", "Papas al horno", "🥔", "Papas horneadas con queso.", "Papas|Queso|Crema|Cebollín|Sal", "Lava las papas.|Pínchalas con un tenedor.|Hornea con ayuda de un adulto hasta que estén suaves.|Abre y agrega queso, crema y cebollín."),
+    crearComida("Estados Unidos", "Sopa de tomate", "🍅", "Sopa cremosa de tomate.", "Jitomates|Cebolla|Ajo|Caldo de verduras|Crema", "Cocina los jitomates con cebolla y ajo.|Agrega el caldo.|Licúa con cuidado y ayuda de un adulto.|Calienta nuevamente y agrega crema."),
+
+    // ESPAÑA 🇪🇸
+    crearComida("España", "Paella", "🥘", "Arroz español con verduras.", "Arroz|Caldo de verduras|Pimiento|Chícharos|Azafrán|Camarones opcionales", "Cocina las verduras con ayuda de un adulto.|Agrega el arroz y el caldo.|Añade el azafrán.|Cocina hasta que el arroz esté suave y bien cocido."),
+    crearComida("España", "Tortilla española", "🥔", "Tortilla de papa y huevo.", "Papas|Huevos|Cebolla|Aceite|Sal", "Corta las papas y la cebolla.|Cocina las papas con ayuda de un adulto hasta que estén suaves.|Mezcla con huevo batido.|Cocina hasta que el huevo esté completamente cuajado."),
+    crearComida("España", "Patatas bravas", "🍟", "Papas acompañadas de salsa.", "Papas|Jitomate|Pimentón|Ajo|Aceite", "Corta las papas en cubos.|Hornéalas con ayuda de un adulto hasta dorar.|Prepara una salsa con jitomate y pimentón.|Sirve las papas con la salsa."),
+    crearComida("España", "Croquetas de jamón", "🥟", "Croquetas cremosas con jamón.", "Jamón cocido|Leche|Harina|Mantequilla|Huevo|Pan molido", "Prepara una salsa espesa con leche, harina y mantequilla.|Agrega el jamón.|Deja enfriar y forma croquetas.|Pasa por huevo y pan molido.|Cocina con ayuda de un adulto hasta dorar."),
+    crearComida("España", "Gazpacho", "🍅", "Sopa fría de verduras.", "Jitomate|Pepino|Pimiento|Ajo|Aceite de oliva|Pan", "Lava las verduras.|Corta los ingredientes.|Licúa todo hasta obtener una mezcla suave.|Refrigera antes de servir."),
+    crearComida("España", "Albóndigas en salsa", "🍲", "Bolitas de carne en salsa de tomate.", "Carne molida|Huevo|Pan molido|Jitomate|Cebolla|Ajo", "Mezcla la carne con huevo y pan molido.|Forma albóndigas.|Cocina completamente con ayuda de un adulto.|Prepara salsa de tomate y agrega las albóndigas."),
+    crearComida("España", "Pisto manchego", "🍆", "Guiso de verduras españolas.", "Calabacita|Berenjena|Pimiento|Jitomate|Cebolla", "Lava y corta las verduras.|Cocina la cebolla y el pimiento.|Agrega la berenjena y la calabacita.|Incorpora el jitomate y cocina hasta suavizar."),
+    crearComida("España", "Fideuá", "🍜", "Platillo de fideos preparado con caldo.", "Fideos cortos|Caldo de pescado o verduras|Jitomate|Pimiento|Ajo", "Cocina las verduras.|Agrega los fideos.|Vierte el caldo caliente con ayuda de un adulto.|Cocina hasta que los fideos estén suaves."),
+    crearComida("España", "Bocadillo de calamares", "🥪", "Pan relleno de calamares cocidos.", "Pan|Calamares limpios|Harina|Lechuga|Limón", "Prepara los calamares con ayuda de un adulto.|Cocínalos completamente.|Colócalos dentro del pan.|Agrega lechuga y limón."),
+    crearComida("España", "Empanada gallega", "🥧", "Empanada rellena de verduras y atún.", "Masa para empanada|Atún enlatado|Pimiento|Cebolla|Jitomate", "Cocina la cebolla y el pimiento.|Agrega jitomate y atún.|Coloca el relleno sobre la masa.|Cubre con otra capa y hornea con ayuda de un adulto hasta dorar."),
+
+    // INDIA 🇮🇳
+    crearComida("India", "Butter chicken", "🍛", "Pollo con salsa cremosa de tomate y especias.", "Pollo|Jitomate|Crema|Mantequilla|Curry suave|Arroz", "Cocina completamente el pollo con ayuda de un adulto.|Prepara la salsa con jitomate y mantequilla.|Agrega crema y curry suave.|Mezcla con el pollo y sirve con arroz."),
+    crearComida("India", "Biryani de verduras", "🍚", "Arroz aromático con verduras.", "Arroz|Zanahoria|Chícharos|Papa|Curry suave|Caldo", "Lava y corta las verduras.|Cocina las verduras con las especias.|Agrega arroz y caldo.|Cocina hasta que el arroz esté suave."),
+    crearComida("India", "Samosas de papa", "🥟", "Empanaditas rellenas de papa.", "Masa para empanadas|Papas cocidas|Chícharos|Comino|Cilantro", "Machaca las papas.|Mezcla con chícharos y condimentos.|Rellena la masa y forma triángulos.|Hornea con ayuda de un adulto hasta dorar."),
+    crearComida("India", "Chana masala", "🫘", "Garbanzos preparados con tomate y especias.", "Garbanzos cocidos|Jitomate|Cebolla|Ajo|Curry suave", "Pica la cebolla y el ajo.|Cocínalos con ayuda de un adulto.|Agrega jitomate y curry suave.|Añade garbanzos y cocina unos minutos."),
+    crearComida("India", "Palak paneer", "🥬", "Espinacas con queso fresco.", "Espinacas|Queso panela|Crema|Ajo|Cebolla", "Lava y cocina las espinacas.|Licúalas con un poco de agua.|Cocina ajo y cebolla.|Agrega las espinacas y el queso en cubos."),
+    crearComida("India", "Dal tadka", "🥣", "Guiso de lentejas con especias.", "Lentejas|Jitomate|Cebolla|Ajo|Cúrcuma|Caldo", "Cuece las lentejas.|Cocina cebolla, ajo y jitomate.|Agrega las especias suaves.|Incorpora las lentejas y mezcla."),
+    crearComida("India", "Aloo gobi", "🥔", "Guiso de papa y coliflor.", "Papas|Coliflor|Jitomate|Cúrcuma|Comino", "Corta las papas y la coliflor.|Cocina las verduras con ayuda de un adulto.|Agrega jitomate y especias.|Cocina hasta que estén suaves."),
+    crearComida("India", "Pollo tikka masala", "🍗", "Pollo con salsa cremosa de tomate.", "Pollo|Yogur natural|Jitomate|Crema|Curry suave|Arroz", "Mezcla el pollo con yogur y especias suaves.|Refrigera para marinar.|Cocina completamente con ayuda de un adulto.|Agrega la salsa de tomate y crema."),
+    crearComida("India", "Dosa de papa", "🥞", "Crepa india rellena de papa.", "Harina de arroz|Harina de lentejas|Agua|Papa cocida|Cebolla|Cúrcuma", "Mezcla las harinas con agua.|Prepara el relleno machacando papa con cebolla.|Cocina una capa delgada de masa.|Rellena y dobla."),
+    crearComida("India", "Arroz con coco", "🥥", "Arroz aromático con coco.", "Arroz|Leche de coco|Agua|Sal|Coco rallado", "Lava el arroz.|Coloca el arroz en una olla con agua y leche de coco.|Cocina con ayuda de un adulto hasta que esté suave.|Decora con coco rallado."),
+
+    // CHINA 🇨🇳
+    crearComida("China", "Arroz frito", "🍚", "Arroz salteado con verduras.", "Arroz cocido|Zanahoria|Chícharos|Huevo bien cocido|Salsa de soya", "Corta las verduras.|Cocina completamente el huevo.|Agrega el arroz y las verduras.|Añade salsa de soya y mezcla."),
+    crearComida("China", "Dumplings de verduras", "🥟", "Empanaditas chinas rellenas de verduras.", "Discos para dumplings|Col|Zanahoria|Champiñones|Salsa de soya", "Pica las verduras.|Cocínalas y deja enfriar.|Rellena los discos y sella.|Cocina al vapor con ayuda de un adulto hasta que estén listos."),
+    crearComida("China", "Chow mein", "🍜", "Fideos chinos con verduras.", "Fideos|Zanahoria|Col|Pimiento|Salsa de soya", "Cuece los fideos.|Corta las verduras.|Cocina las verduras con ayuda de un adulto.|Agrega los fideos y la salsa de soya."),
+    crearComida("China", "Pollo agridulce", "🍗", "Pollo con salsa dulce y ligeramente ácida.", "Pollo|Jitomate|Piña|Vinagre|Salsa de soya|Maicena", "Corta la piña y el jitomate.|Cocina completamente el pollo.|Prepara la salsa con los demás ingredientes.|Mezcla el pollo con la salsa."),
+    crearComida("China", "Rollitos primavera", "🥬", "Rollitos rellenos de verduras.", "Hojas para rollitos|Col|Zanahoria|Champiñones|Salsa de soya", "Corta las verduras.|Cocínalas y deja enfriar.|Coloca el relleno sobre las hojas.|Enrolla y sella.|Hornea con ayuda de un adulto hasta dorar."),
+    crearComida("China", "Baozi de verduras", "🥟", "Panecillos chinos rellenos.", "Masa para bao|Col|Zanahoria|Champiñones|Salsa de soya", "Prepara el relleno con verduras cocidas.|Divide la masa.|Coloca el relleno y cierra cada panecillo.|Cocina al vapor con ayuda de un adulto."),
+    crearComida("China", "Sopa wonton", "🥣", "Sopa china con pequeñas empanaditas.", "Hojas wonton|Verduras|Caldo de verduras|Cebollín|Champiñones", "Prepara el relleno con verduras.|Coloca pequeñas porciones en las hojas.|Cierra los wonton.|Cocínalos en el caldo hasta que estén listos."),
+    crearComida("China", "Mapo tofu suave", "🍲", "Tofu en salsa suave.", "Tofu|Jitomate|Ajo|Cebolla|Salsa de soya|Caldo", "Corta el tofu en cubos.|Cocina ajo y cebolla.|Agrega jitomate y caldo.|Incorpora el tofu y cocina suavemente."),
+    crearComida("China", "Congee de pollo", "🥣", "Gachas de arroz con pollo.", "Arroz|Pollo cocido|Caldo de pollo|Jengibre|Cebollín", "Lava el arroz.|Cocínalo con caldo hasta que quede muy suave.|Agrega pollo completamente cocido y deshebrado.|Decora con cebollín."),
+    crearComida("China", "Fideos Dan Dan suaves", "🍜", "Fideos con salsa de soya y verduras.", "Fideos|Pasta de ajonjolí|Salsa de soya|Zanahoria|Cebollín|Caldo", "Cuece los fideos.|Mezcla la pasta de ajonjolí con salsa de soya y caldo.|Agrega las verduras.|Incorpora los fideos y mezcla."),
+
+    // PERÚ 🇵🇪
+    crearComida("Perú", "Ceviche de pescado cocido", "🐟", "Preparación fresca de pescado completamente cocido.", "Pescado cocido y frío|Limón|Cebolla morada|Cilantro|Camote cocido", "Cocina completamente el pescado y déjalo enfriar.|Corta la cebolla y el cilantro.|Mezcla con el limón.|Sirve con camote cocido."),
+    crearComida("Perú", "Lomo saltado", "🥩", "Carne de res con verduras y arroz.", "Carne de res|Cebolla morada|Tomate|Papas|Salsa de soya|Arroz", "Corta la carne y las verduras.|Cocina completamente la carne con ayuda de un adulto.|Agrega las verduras y salsa de soya.|Sirve con papas y arroz."),
+    crearComida("Perú", "Ají de gallina", "🍗", "Pollo deshebrado en salsa cremosa.", "Pollo cocido|Leche evaporada|Pan|Nuez|Ají amarillo suave|Papa", "Remoja el pan en leche.|Licúa con nuez y ají suave.|Calienta la salsa y agrega el pollo.|Sirve sobre papa cocida."),
+    crearComida("Perú", "Causa limeña", "🥔", "Pastel frío de papa relleno.", "Papa amarilla|Limón|Aceite|Pollo cocido|Mayonesa|Aguacate", "Machaca las papas cocidas.|Mezcla con limón y aceite.|Forma una capa y agrega pollo con mayonesa.|Cubre con más papa y aguacate."),
+    crearComida("Perú", "Arroz chaufa", "🍚", "Arroz salteado con verduras y pollo.", "Arroz cocido|Pollo cocido|Huevo bien cocido|Cebollín|Salsa de soya", "Corta el pollo y las verduras.|Cocina completamente el huevo.|Agrega arroz y mezcla.|Añade salsa de soya y cebollín."),
+    crearComida("Perú", "Papa a la huancaína", "🥔", "Papas cocidas con salsa cremosa.", "Papas|Queso fresco|Leche|Galletas saladas|Ají amarillo suave|Lechuga", "Cuece las papas.|Licúa queso, leche, galletas y ají suave.|Acomoda lechuga y papas.|Cubre con la salsa."),
+    crearComida("Perú", "Tacu tacu", "🫘", "Tortitas de arroz y frijoles.", "Arroz cocido|Frijoles cocidos|Cebolla|Ajo|Cilantro", "Machaca ligeramente los frijoles.|Mezcla con arroz.|Cocina cebolla y ajo y agrega la mezcla.|Forma tortitas y cocina por ambos lados."),
+    crearComida("Perú", "Pollo a la brasa", "🍗", "Pollo horneado con especias.", "Pollo|Ajo|Comino|Pimentón|Limón|Papas", "Mezcla ajo, comino, pimentón y limón.|Unta el pollo y refrigera.|Hornea con ayuda de un adulto hasta que esté completamente cocido.|Sirve con papas."),
+    crearComida("Perú", "Papa rellena", "🥔", "Papa rellena de carne y verduras.", "Papas cocidas|Carne molida bien cocida|Cebolla|Huevo cocido|Harina", "Machaca las papas.|Prepara el relleno con carne completamente cocida y cebolla.|Coloca el relleno dentro de la papa.|Forma óvalos y hornea con ayuda de un adulto."),
+    crearComida("Perú", "Anticuchos de res", "🍢", "Brochetas de carne con condimentos.", "Carne de res en cubos|Ajo|Vinagre|Comino|Pimentón|Papa cocida", "Mezcla ajo, vinagre y condimentos.|Marina la carne en refrigeración.|Coloca los cubos en brochetas.|Cocina completamente con ayuda de un adulto y sirve con papa."),
+
+    // FRANCIA 🇫🇷
+    crearComida("Francia", "Quiche lorraine", "🥧", "Tarta salada de huevo, queso y jamón.", "Masa quebrada|Huevo|Crema|Queso|Jamón cocido", "Coloca la masa en un molde.|Mezcla huevo, crema, queso y jamón.|Vierte el relleno sobre la masa.|Hornea con ayuda de un adulto hasta que esté firme."),
+    crearComida("Francia", "Ratatouille", "🍆", "Guiso francés de verduras.", "Berenjena|Calabacita|Jitomate|Pimiento|Cebolla|Ajo", "Lava y corta las verduras.|Colócalas en un refractario.|Agrega ajo, cebolla y aceite.|Hornea con ayuda de un adulto hasta que estén suaves."),
+    crearComida("Francia", "Croque monsieur", "🥪", "Sándwich francés de jamón y queso.", "Pan de caja|Jamón cocido|Queso|Leche|Harina|Mantequilla", "Prepara una salsa blanca con mantequilla, harina y leche.|Arma el sándwich con jamón y queso.|Cubre con salsa y más queso.|Hornea con ayuda de un adulto hasta gratinar."),
+    crearComida("Francia", "Sopa de cebolla", "🧅", "Sopa francesa con cebolla y queso.", "Cebollas|Caldo de verduras|Pan|Queso|Mantequilla", "Corta la cebolla.|Cocínala con mantequilla hasta suavizar.|Agrega el caldo y deja hervir suavemente.|Sirve con pan y queso."),
+    crearComida("Francia", "Crepas saladas", "🥞", "Crepas rellenas de verduras y queso.", "Harina|Leche|Huevo|Queso|Espinaca|Champiñones", "Mezcla harina, leche y huevo.|Cocina capas delgadas con ayuda de un adulto.|Prepara el relleno con espinaca, champiñones y queso.|Rellena las crepas."),
+    crearComida("Francia", "Boeuf bourguignon", "🍲", "Guiso francés de carne y verduras.", "Carne de res|Zanahoria|Cebolla|Champiñones|Caldo de res|Tomillo", "Corta las verduras y la carne.|Cocina completamente la carne con ayuda de un adulto.|Agrega verduras, caldo y tomillo.|Cocina hasta que esté suave."),
+    crearComida("Francia", "Gratin dauphinois", "🥔", "Papas horneadas con crema.", "Papas|Crema|Leche|Ajo|Queso|Nuez moscada", "Corta las papas en rodajas.|Acomódalas en un refractario.|Mezcla crema, leche y nuez moscada y vierte encima.|Hornea con ayuda de un adulto hasta que estén suaves."),
+    crearComida("Francia", "Coq au bouillon", "🍗", "Pollo cocido lentamente con verduras.", "Pollo|Zanahoria|Cebolla|Apio|Caldo de pollo|Hierbas", "Coloca el pollo y las verduras en una olla.|Agrega caldo y hierbas.|Cocina con ayuda de un adulto hasta que el pollo esté completamente cocido.|Sirve con las verduras."),
+    crearComida("Francia", "Ensalada niçoise", "🥗", "Ensalada francesa con atún y verduras.", "Lechuga|Atún enlatado|Huevo cocido|Ejotes cocidos|Tomate|Aceitunas", "Lava y desinfecta la lechuga.|Cuece los ejotes y el huevo.|Acomoda los ingredientes en un plato.|Agrega aceitunas y vinagreta."),
+    crearComida("Francia", "Pollo con champiñones", "🍄", "Pollo en salsa cremosa de champiñones.", "Pechuga de pollo|Champiñones|Crema|Ajo|Caldo de pollo|Perejil", "Corta los champiñones y el ajo.|Cocina completamente el pollo con ayuda de un adulto.|Agrega champiñones, caldo y crema.|Cocina hasta espesar y sirve con perejil.")
+
+];
+        const recetas = [
+
+            // RECETAS INTERNACIONALES DE LOS 10 PAISES
+    ...comidasInternacionales,
+
+            // POSTRES ORIGINALES
+
+            {
+                nombre: "Pastel de fresa",
+                categoria: "Postres",
+                emoji: "🍰",
+                descripcion: "Un pastel suave y delicioso.",
+                ingredientes: [
+                    "2 tazas de harina",
+                    "2 huevos",
+                    "1 taza de azúcar",
+                    "1/2 taza de leche",
+                    "1 cucharadita de polvo para hornear",
+                    "1 taza de fresas"
+                ],
+                procedimiento: [
+                    "Mezcla los huevos con el azúcar.",
+                    "Agrega la leche y la harina.",
+                    "Incorpora el polvo para hornear.",
+                    "Coloca la mezcla en un molde.",
+                    "Con ayuda de un adulto, hornea hasta que esté cocido.",
+                    "Decora con fresas."
+                ]
+            },
+
+            {
+                nombre: "Brownies de chocolate",
+                categoria: "Postres",
+                emoji: "🍫",
+                descripcion: "Brownies suaves con mucho chocolate.",
+                ingredientes: [
+                    "1 taza de harina",
+                    "1/2 taza de mantequilla",
+                    "1 taza de azúcar",
+                    "2 huevos",
+                    "1/2 taza de cocoa"
+                ],
+                procedimiento: [
+                    "Mezcla la mantequilla con el azúcar.",
+                    "Agrega los huevos.",
+                    "Incorpora la harina y la cocoa.",
+                    "Mezcla hasta integrar.",
+                    "Coloca en un molde.",
+                    "Con ayuda de un adulto, hornea hasta que estén cocidos."
+                ]
+            },
+
+            {
+                nombre: "Galletas de chocolate",
+                categoria: "Postres",
+                emoji: "🍪",
+                descripcion: "Galletitas dulces y crujientes.",
+                ingredientes: [
+                    "1 taza de harina",
+                    "1/2 taza de mantequilla",
+                    "1/2 taza de azúcar",
+                    "1 huevo",
+                    "1/2 taza de chispas de chocolate",
+                    "1 cucharadita de vainilla"
+                ],
+                procedimiento: [
+                    "Mezcla la mantequilla con el azúcar.",
+                    "Agrega el huevo y la vainilla.",
+                    "Incorpora la harina poco a poco.",
+                    "Añade las chispas de chocolate.",
+                    "Forma pequeñas bolitas y colócalas en una charola.",
+                    "Con ayuda de un adulto, hornea a 180 °C durante aproximadamente 12 a 15 minutos."
+                ]
+            },
+
+            {
+                nombre: "Fresas con crema",
+                categoria: "Postres",
+                emoji: "🍓",
+                descripcion: "Un postre fresco y delicioso.",
+                ingredientes: [
+                    "1 taza de fresas",
+                    "1 taza de crema",
+                    "2 cucharadas de leche condensada",
+                    "1 cucharadita de vainilla"
+                ],
+                procedimiento: [
+                    "Lava y desinfecta las fresas.",
+                    "Corta las fresas en trozos pequeños.",
+                    "Mezcla la crema con la leche condensada.",
+                    "Agrega la vainilla.",
+                    "Incorpora las fresas.",
+                    "Refrigera unos minutos antes de servir."
+                ]
+            },
+
+
+            // NUEVOS POSTRES JAPONESES
+
+            {
+                nombre: "Dorayaki",
+                categoria: "Postres",
+                emoji: "🥞",
+                descripcion: "Pancakes japoneses rellenos de crema dulce.",
+                ingredientes: [
+                    "2 huevos",
+                    "80 g de azúcar",
+                    "1 cucharada de miel",
+                    "130 g de harina",
+                    "1 cucharadita de polvo para hornear",
+                    "2 cucharadas de agua",
+                    "Crema de chocolate o pasta dulce de frijol rojo (anko)"
+                ],
+                procedimiento: [
+                    "Bate los huevos con el azúcar y la miel.",
+                    "Agrega la harina y el polvo para hornear.",
+                    "Añade el agua hasta obtener una mezcla espesa.",
+                    "Deja reposar durante 15 minutos.",
+                    "Con ayuda de un adulto, cocina pequeñas porciones en un sartén antiadherente a fuego bajo.",
+                    "Voltea cuando aparezcan burbujitas.",
+                    "Deja enfriar y rellena con crema de chocolate o anko."
+                ]
+            },
+
+            {
+                nombre: "Cheesecake japonés",
+                categoria: "Postres",
+                emoji: "🍰",
+                descripcion: "Pastel de queso japonés suave y esponjoso.",
+                ingredientes: [
+                    "200 g de queso crema",
+                    "50 ml de leche",
+                    "40 g de mantequilla",
+                    "5 huevos",
+                    "100 g de azúcar",
+                    "60 g de harina",
+                    "1 cucharada de jugo de limón",
+                    "1 cucharadita de vainilla"
+                ],
+                procedimiento: [
+                    "Separa las claras de las yemas.",
+                    "Mezcla el queso crema, la leche y la mantequilla.",
+                    "Agrega las yemas, la vainilla y el limón.",
+                    "Incorpora la harina previamente tamizada.",
+                    "Bate las claras con el azúcar hasta obtener picos suaves.",
+                    "Integra las claras a la mezcla con movimientos envolventes.",
+                    "Vierte en un molde preparado.",
+                    "Con ayuda de un adulto, hornea a baño María a 160 °C hasta que esté cocido.",
+                    "Deja enfriar antes de servir."
+                ]
+            },
+
+            {
+                nombre: "Galletas de matcha",
+                categoria: "Postres",
+                emoji: "🍵",
+                descripcion: "Galletitas japonesas con sabor a té verde.",
+                ingredientes: [
+                    "120 g de mantequilla",
+                    "100 g de azúcar",
+                    "1 huevo",
+                    "200 g de harina",
+                    "2 cucharaditas de matcha en polvo",
+                    "1 cucharadita de vainilla",
+                    "1/2 cucharadita de polvo para hornear"
+                ],
+                procedimiento: [
+                    "Mezcla la mantequilla con el azúcar.",
+                    "Agrega el huevo y la vainilla.",
+                    "Incorpora la harina, el matcha y el polvo para hornear.",
+                    "Forma una masa.",
+                    "Refrigera durante 20 minutos.",
+                    "Forma bolitas y colócalas en una charola.",
+                    "Aplana ligeramente las bolitas.",
+                    "Con ayuda de un adulto, hornea a 180 °C durante 10 a 12 minutos.",
+                    "Deja enfriar."
+                ]
+            },
+
+            {
+                nombre: "Castella",
+                categoria: "Postres",
+                emoji: "🍯",
+                descripcion: "Bizcocho japonés esponjoso con sabor a miel.",
+                ingredientes: [
+                    "4 huevos",
+                    "120 g de azúcar",
+                    "100 g de harina",
+                    "2 cucharadas de miel",
+                    "2 cucharadas de leche tibia"
+                ],
+                procedimiento: [
+                    "Mezcla la miel con la leche tibia.",
+                    "Bate los huevos con el azúcar hasta que la mezcla esté espesa.",
+                    "Agrega la mezcla de miel.",
+                    "Incorpora la harina tamizada con movimientos envolventes.",
+                    "Vierte en un molde preparado.",
+                    "Con ayuda de un adulto, hornea a 160 °C durante 35 a 40 minutos.",
+                    "Deja enfriar y corta en rebanadas."
+                ]
+            },
+
+            {
+                nombre: "Melonpan",
+                categoria: "Postres",
+                emoji: "🍈",
+                descripcion: "Pan dulce japonés con una cubierta crujiente.",
+                ingredientes: [
+                    "250 g de harina de trigo",
+                    "30 g de azúcar",
+                    "1 cucharadita de levadura seca",
+                    "1 huevo",
+                    "100 ml de leche tibia",
+                    "30 g de mantequilla",
+                    "Para la cubierta: 100 g de harina",
+                    "40 g de mantequilla",
+                    "40 g de azúcar",
+                    "1 huevo"
+                ],
+                procedimiento: [
+                    "Mezcla la harina, el azúcar y la levadura.",
+                    "Agrega el huevo y la leche.",
+                    "Amasa y añade los 30 g de mantequilla.",
+                    "Continúa amasando hasta obtener una masa suave.",
+                    "Deja reposar hasta que aumente de tamaño.",
+                    "Para la cubierta, mezcla la mantequilla, el azúcar y el huevo.",
+                    "Agrega la harina de la cubierta.",
+                    "Divide la masa del pan y cubre cada porción con la masa de galleta.",
+                    "Marca un patrón de rombos en la cubierta.",
+                    "Deja reposar nuevamente.",
+                    "Con ayuda de un adulto, hornea a 180 °C durante 15 a 20 minutos."
+                ]
+            },
+
+            {
+                nombre: "Taiyaki",
+                categoria: "Postres",
+                emoji: "🐟",
+                descripcion: "Pastelitos japoneses con forma de pececito.",
+                ingredientes: [
+                    "150 g de harina",
+                    "1 huevo",
+                    "180 ml de leche",
+                    "2 cucharadas de azúcar",
+                    "1 cucharadita de polvo para hornear",
+                    "1 cucharadita de vainilla",
+                    "Crema pastelera, chocolate o anko para rellenar"
+                ],
+                procedimiento: [
+                    "Mezcla el huevo, el azúcar y la vainilla.",
+                    "Agrega la leche.",
+                    "Incorpora la harina y el polvo para hornear.",
+                    "Mezcla hasta obtener una masa uniforme.",
+                    "Con ayuda de un adulto, prepara y calienta un molde especial para taiyaki.",
+                    "Vierte un poco de mezcla en el molde.",
+                    "Agrega el relleno en el centro.",
+                    "Cubre con un poco más de mezcla.",
+                    "Cierra el molde y cocina por ambos lados hasta que esté dorado y cocido.",
+                    "Deja enfriar un poco antes de servir."
+                ]
+            },
+
+            {
+                nombre: "Purin japonés",
+                categoria: "Postres",
+                emoji: "🍮",
+                descripcion: "Flan japonés cremoso con caramelo.",
+                ingredientes: [
+                    "2 huevos",
+                    "250 ml de leche",
+                    "50 g de azúcar",
+                    "1 cucharadita de vainilla",
+                    "Para el caramelo: 50 g de azúcar",
+                    "2 cucharadas de agua"
+                ],
+                procedimiento: [
+                    "Con ayuda de un adulto, prepara el caramelo calentando el azúcar con el agua hasta que tome un color dorado.",
+                    "Reparte el caramelo en moldes resistentes al calor.",
+                    "Mezcla los huevos con el azúcar.",
+                    "Agrega la leche y la vainilla.",
+                    "Cuela la mezcla para que quede suave.",
+                    "Vierte en los moldes.",
+                    "Con ayuda de un adulto, cocina a baño María hasta que cuaje.",
+                    "Refrigera antes de desmoldar."
+                ]
+            },
+
+            {
+                nombre: "Hotcakes soufflé",
+                categoria: "Postres",
+                emoji: "🥞",
+                descripcion: "Hotcakes japoneses altos, suaves y esponjosos.",
+                ingredientes: [
+                    "2 huevos",
+                    "30 ml de leche",
+                    "40 g de harina",
+                    "30 g de azúcar",
+                    "1/2 cucharadita de polvo para hornear",
+                    "1 cucharadita de vainilla",
+                    "Fresas y crema para decorar"
+                ],
+                procedimiento: [
+                    "Separa las claras de las yemas.",
+                    "Mezcla las yemas con la leche y la vainilla.",
+                    "Agrega la harina y el polvo para hornear.",
+                    "Bate las claras con el azúcar hasta obtener picos firmes.",
+                    "Integra las claras a la mezcla con movimientos envolventes.",
+                    "Con ayuda de un adulto, cocina porciones altas en un sartén antiadherente a fuego bajo.",
+                    "Agrega un poquito de agua y tapa el sartén.",
+                    "Voltea cuidadosamente y cocina hasta que estén bien cocidos.",
+                    "Decora con fresas y crema."
+                ]
+            },
+
+            {
+                nombre: "Strawberry sando",
+                categoria: "Postres",
+                emoji: "🍓",
+                descripcion: "Sándwich japonés dulce relleno de fresas y crema.",
+                ingredientes: [
+                    "4 rebanadas de pan de leche sin orillas",
+                    "200 ml de crema para batir fría",
+                    "2 cucharadas de azúcar glass",
+                    "1 cucharadita de vainilla",
+                    "8 fresas frescas"
+                ],
+                procedimiento: [
+                    "Lava y seca muy bien las fresas.",
+                    "Bate la crema con el azúcar glass y la vainilla.",
+                    "Unta una capa de crema sobre el pan.",
+                    "Coloca las fresas encima.",
+                    "Rellena los espacios con más crema.",
+                    "Coloca otra rebanada de pan encima.",
+                    "Envuelve y refrigera durante 30 minutos.",
+                    "Corta por la mitad para mostrar las fresas."
+                ]
+            },
+
+            {
+                nombre: "Dango",
+                categoria: "Postres",
+                emoji: "🍡",
+                descripcion: "Bolitas dulces japonesas de arroz en brochetas.",
+                ingredientes: [
+                    "100 g de harina de arroz glutinoso",
+                    "100 g de tofu suave",
+                    "1 cucharada de azúcar",
+                    "Colorante alimentario rosa y verde (opcional)",
+                    "Agua para cocinar",
+                    "Brochetas de madera"
+                ],
+                procedimiento: [
+                    "Mezcla la harina de arroz, el tofu y el azúcar.",
+                    "Amasa hasta obtener una masa suave.",
+                    "Divide la masa en tres partes.",
+                    "Colorea dos porciones de rosa y verde si lo deseas.",
+                    "Forma pequeñas bolitas.",
+                    "Con ayuda de un adulto, cocina las bolitas en agua hirviendo.",
+                    "Cuando floten, déjalas cocinar un par de minutos más.",
+                    "Retíralas cuidadosamente y colócalas en agua fría.",
+                    "Escurre y coloca las bolitas en brochetas."
+                ]
+            },
+
+
+            // BEBIDAS
+
+            {
+                nombre: "Limonada",
+                categoria: "Bebidas",
+                emoji: "🍋",
+                descripcion: "Una bebida refrescante.",
+                ingredientes: [
+                    "4 limones",
+                    "1 litro de agua",
+                    "Azúcar al gusto",
+                    "Hielos"
+                ],
+                procedimiento: [
+                    "Exprime los limones.",
+                    "Coloca el jugo en una jarra.",
+                    "Agrega el agua.",
+                    "Añade azúcar al gusto.",
+                    "Mezcla y agrega hielos.",
+                    "Sirve fría."
+                ]
+            },
+
+            {
+                nombre: "Agua de fresa",
+                categoria: "Bebidas",
+                emoji: "🍓",
+                descripcion: "Agua fresca con sabor a fresa.",
+                ingredientes: [
+                    "1 taza de fresas",
+                    "1 litro de agua",
+                    "Azúcar al gusto",
+                    "Hielos"
+                ],
+                procedimiento: [
+                    "Lava las fresas.",
+                    "Licúa las fresas con un poco de agua.",
+                    "Vierte la mezcla en una jarra.",
+                    "Agrega el resto del agua.",
+                    "Endulza al gusto y mezcla.",
+                    "Sirve con hielos."
+                ]
+            },
+
+            {
+                nombre: "Licuado de plátano",
+                categoria: "Bebidas",
+                emoji: "🍌",
+                descripcion: "Una bebida cremosa y sencilla.",
+                ingredientes: [
+                    "1 plátano",
+                    "1 taza de leche",
+                    "Canela al gusto",
+                    "Hielo opcional"
+                ],
+                procedimiento: [
+                    "Pela el plátano.",
+                    "Coloca el plátano y la leche en la licuadora.",
+                    "Agrega un poco de canela.",
+                    "Licúa hasta que quede cremoso.",
+                    "Sirve en un vaso."
+                ]
+            },
+
+            // NUEVAS BEBIDAS JAPONESAS
+
+            {
+                nombre: "Matcha latte",
+                categoria: "Bebidas",
+                emoji: "🍵",
+                descripcion: "Bebida cremosa japonesa preparada con té verde matcha.",
+                ingredientes: [
+                    "1 cucharadita de matcha en polvo",
+                    "1 taza de leche",
+                    "2 cucharadas de agua caliente",
+                    "Azúcar o miel al gusto",
+                    "Hielos opcionales"
+                ],
+                procedimiento: [
+                    "Coloca el matcha en una taza.",
+                    "Agrega el agua caliente y mezcla hasta disolver.",
+                    "Añade azúcar o miel al gusto.",
+                    "Agrega la leche poco a poco.",
+                    "Mezcla bien y sirve con hielos si lo deseas."
+                ]
+            },
+
+            {
+                nombre: "Ramune casera",
+                categoria: "Bebidas",
+                emoji: "🫧",
+                descripcion: "Bebida inspirada en el famoso refresco japonés.",
+                ingredientes: [
+                    "1 taza de agua mineral",
+                    "2 cucharadas de jarabe de limón",
+                    "1 cucharada de azúcar",
+                    "Unas gotas de jugo de limón",
+                    "Hielos"
+                ],
+                procedimiento: [
+                    "Coloca el jarabe de limón en un vaso.",
+                    "Agrega el azúcar y mezcla.",
+                    "Añade el jugo de limón.",
+                    "Vierte el agua mineral lentamente.",
+                    "Agrega hielos y sirve."
+                ]
+            },
+
+            {
+                nombre: "Hojicha latte",
+                categoria: "Bebidas",
+                emoji: "🧋",
+                descripcion: "Bebida japonesa de té verde tostado con leche.",
+                ingredientes: [
+                    "1 cucharadita de hojicha en polvo",
+                    "1 taza de leche",
+                    "2 cucharadas de agua caliente",
+                    "Azúcar al gusto"
+                ],
+                procedimiento: [
+                    "Coloca el hojicha en una taza.",
+                    "Agrega el agua caliente.",
+                    "Mezcla hasta que se disuelva.",
+                    "Calienta la leche con ayuda de un adulto.",
+                    "Vierte la leche sobre el té.",
+                    "Endulza al gusto y disfruta."
+                ]
+            },
+
+            {
+                nombre: "Té de sakura",
+                categoria: "Bebidas",
+                emoji: "🌸",
+                descripcion: "Infusión inspirada en las flores de cerezo japonesas.",
+                ingredientes: [
+                    "1 taza de agua",
+                    "Flores de cerezo comestibles para infusión",
+                    "Miel al gusto",
+                    "Unas gotas de limón opcionales"
+                ],
+                procedimiento: [
+                    "Calienta el agua con ayuda de un adulto.",
+                    "Coloca las flores comestibles en una taza.",
+                    "Agrega el agua caliente.",
+                    "Deja reposar unos minutos.",
+                    "Retira las flores si es necesario.",
+                    "Agrega miel y sirve."
+                ]
+            },
+
+            {
+                nombre: "Limonada de yuzu",
+                categoria: "Bebidas",
+                emoji: "🍋",
+                descripcion: "Bebida cítrica japonesa con un toque dulce.",
+                ingredientes: [
+                    "2 cucharadas de jugo de yuzu",
+                    "1 taza de agua fría",
+                    "1 cucharada de miel",
+                    "Hielos",
+                    "Rodajas de limón"
+                ],
+                procedimiento: [
+                    "Coloca el jugo de yuzu en un vaso.",
+                    "Agrega la miel.",
+                    "Añade el agua fría.",
+                    "Mezcla hasta integrar.",
+                    "Agrega hielos y rodajas de limón."
+                ]
+            },
+
+            {
+                nombre: "Ichigo milk",
+                categoria: "Bebidas",
+                emoji: "🍓",
+                descripcion: "Leche japonesa dulce con fresas naturales.",
+                ingredientes: [
+                    "1 taza de fresas",
+                    "1 taza de leche fría",
+                    "2 cucharadas de azúcar",
+                    "1 cucharadita de vainilla",
+                    "Hielos opcionales"
+                ],
+                procedimiento: [
+                    "Lava y corta las fresas.",
+                    "Machaca las fresas en un recipiente.",
+                    "Agrega el azúcar y mezcla.",
+                    "Coloca las fresas en un vaso.",
+                    "Añade la leche fría.",
+                    "Agrega vainilla y mezcla suavemente."
+                ]
+            },
+
+            {
+                nombre: "Melon soda",
+                categoria: "Bebidas",
+                emoji: "🍈",
+                descripcion: "Refresco japonés de melón con helado de vainilla.",
+                ingredientes: [
+                    "1 taza de agua mineral",
+                    "3 cucharadas de jarabe de melón",
+                    "1 bola de helado de vainilla",
+                    "Hielos",
+                    "Una cereza para decorar"
+                ],
+                procedimiento: [
+                    "Coloca el jarabe de melón en un vaso.",
+                    "Agrega los hielos.",
+                    "Vierte el agua mineral.",
+                    "Mezcla suavemente.",
+                    "Coloca una bola de helado de vainilla encima.",
+                    "Decora con una cereza."
+                ]
+            },
+
+            {
+                nombre: "Mugicha",
+                categoria: "Bebidas",
+                emoji: "🌾",
+                descripcion: "Té japonés tradicional preparado con cebada tostada.",
+                ingredientes: [
+                    "1 cucharada de cebada tostada para té",
+                    "2 tazas de agua",
+                    "Hielos opcionales"
+                ],
+                procedimiento: [
+                    "Calienta el agua con ayuda de un adulto.",
+                    "Agrega la cebada tostada.",
+                    "Deja reposar durante varios minutos.",
+                    "Cuela la bebida.",
+                    "Deja enfriar.",
+                    "Sirve fría o caliente."
+                ]
+            },
+
+            {
+                nombre: "Amazake",
+                categoria: "Bebidas",
+                emoji: "🍚",
+                descripcion: "Bebida japonesa tradicional dulce de arroz.",
+                ingredientes: [
+                    "1 taza de arroz cocido",
+                    "2 tazas de agua",
+                    "1/2 taza de amazake comercial sin alcohol",
+                    "Canela opcional"
+                ],
+                procedimiento: [
+                    "Coloca el arroz cocido en una olla.",
+                    "Agrega el agua.",
+                    "Con ayuda de un adulto, calienta suavemente.",
+                    "Añade el amazake comercial sin alcohol.",
+                    "Mezcla hasta integrar.",
+                    "Deja enfriar un poco y sirve."
+                ]
+            },
+
+            {
+                nombre: "Momo soda",
+                categoria: "Bebidas",
+                emoji: "🍑",
+                descripcion: "Refresco dulce inspirado en el sabor del durazno japonés.",
+                ingredientes: [
+                    "1/2 taza de jugo de durazno",
+                    "1 taza de agua mineral",
+                    "1 cucharada de jarabe de durazno",
+                    "Hielos",
+                    "Rodajas de durazno"
+                ],
+                procedimiento: [
+                    "Coloca el jugo de durazno en un vaso.",
+                    "Agrega el jarabe de durazno.",
+                    "Añade los hielos.",
+                    "Vierte el agua mineral lentamente.",
+                    "Mezcla suavemente.",
+                    "Decora con rodajas de durazno."
+                ]
+            },
+
+            // COMIDAS
+
+            {
+                nombre: "Pasta cremosa",
+                categoria: "Comidas",
+                emoji: "🍝",
+                descripcion: "Pasta suave y deliciosa.",
+                ingredientes: [
+                    "200 g de pasta",
+                    "1 taza de crema",
+                    "1/2 taza de queso",
+                    "Sal al gusto",
+                    "Agua"
+                ],
+                procedimiento: [
+                    "Cuece la pasta siguiendo las indicaciones del paquete.",
+                    "Escurre la pasta.",
+                    "Coloca la crema en una olla.",
+                    "Agrega el queso y mezcla.",
+                    "Incorpora la pasta.",
+                    "Con ayuda de un adulto, calienta y sirve."
+                ]
+            },
+
+            {
+                nombre: "Quesadillas",
+                categoria: "Comidas",
+                emoji: "🧀",
+                descripcion: "Quesadillas fáciles y deliciosas.",
+                ingredientes: [
+                    "2 tortillas",
+                    "Queso al gusto",
+                    "Aguacate",
+                    "Tomate"
+                ],
+                procedimiento: [
+                    "Coloca queso sobre una tortilla.",
+                    "Dobla la tortilla.",
+                    "Con ayuda de un adulto, calienta en un sartén.",
+                    "Voltea hasta que el queso se derrita.",
+                    "Acompaña con aguacate y tomate."
+                ]
+            },
+
+            {
+                nombre: "Ensalada de pollo",
+                categoria: "Comidas",
+                emoji: "🥗",
+                descripcion: "Una ensalada colorida y sabrosa.",
+                ingredientes: [
+                    "Pollo cocido y desmenuzado",
+                    "Lechuga",
+                    "Tomate",
+                    "Zanahoria",
+                    "Aderezo al gusto"
+                ],
+                procedimiento: [
+                    "Lava y desinfecta las verduras.",
+                    "Corta la lechuga y el tomate.",
+                    "Ralla la zanahoria.",
+                    "Coloca todo en un recipiente.",
+                    "Agrega el pollo cocido.",
+                    "Añade el aderezo y mezcla."
+                ]
+            },
+
+            // NUEVAS COMIDAS JAPONESAS
+
+            {
+                nombre: "Onigiri",
+                categoria: "Comidas - Japón",
+                emoji: "🍙",
+                descripcion: "Bolitas de arroz japonesas que pueden rellenarse con diferentes ingredientes.",
+                ingredientes: [
+                    "2 tazas de arroz para sushi cocido",
+                    "1 cucharadita de sal",
+                    "Atún enlatado",
+                    "Mayonesa",
+                    "Hojas de alga nori"
+                ],
+                procedimiento: [
+                    "Deja enfriar un poco el arroz cocido.",
+                    "Mezcla el atún con un poco de mayonesa.",
+                    "Humedece tus manos y agrega un poco de sal.",
+                    "Coloca arroz en tu mano y haz un pequeño espacio en el centro.",
+                    "Agrega el relleno de atún.",
+                    "Cubre con más arroz y forma un triángulo.",
+                    "Decora con una tira de alga nori."
+                ]
+            },
+
+            {
+                nombre: "Ramen japonés",
+                categoria: "Comidas - Japón",
+                emoji: "🍜",
+                descripcion: "Sopa japonesa de fideos acompañada de verduras y otros ingredientes.",
+                ingredientes: [
+                    "1 paquete de fideos ramen",
+                    "2 tazas de caldo de pollo o verduras",
+                    "1 huevo cocido",
+                    "1/2 zanahoria",
+                    "Cebollín picado",
+                    "Salsa de soya al gusto"
+                ],
+                procedimiento: [
+                    "Prepara el caldo con ayuda de un adulto.",
+                    "Cocina los fideos siguiendo las instrucciones del paquete.",
+                    "Corta la zanahoria en rodajas.",
+                    "Agrega los fideos al caldo.",
+                    "Añade la zanahoria y un poco de salsa de soya.",
+                    "Sirve en un tazón.",
+                    "Decora con huevo cocido y cebollín."
+                ]
+            },
+
+            {
+                nombre: "Kare raisu",
+                categoria: "Comidas - Japón",
+                emoji: "🍛",
+                descripcion: "Curry japonés suave acompañado de arroz blanco.",
+                ingredientes: [
+                    "2 tazas de arroz cocido",
+                    "1 papa",
+                    "1 zanahoria",
+                    "1/2 cebolla",
+                    "1 taza de caldo de verduras",
+                    "2 cucharadas de curry japonés en bloque"
+                ],
+                procedimiento: [
+                    "Pela y corta la papa y la zanahoria.",
+                    "Pica la cebolla.",
+                    "Cocina las verduras con el caldo y ayuda de un adulto.",
+                    "Cuando estén suaves, agrega el curry japonés.",
+                    "Mezcla hasta que la salsa espese.",
+                    "Sirve el curry junto al arroz blanco."
+                ]
+            },
+
+            {
+                nombre: "Tempura",
+                categoria: "Comidas",
+                emoji: "🍤",
+                descripcion: "Verduras y camarones cubiertos con una mezcla ligera y crujiente.",
+                ingredientes: [
+                    "6 camarones limpios o verduras variadas",
+                    "1 taza de harina",
+                    "1 huevo",
+                    "3/4 de taza de agua fría",
+                    "Una pizca de sal",
+                    "Aceite para cocinar"
+                ],
+                procedimiento: [
+                    "Lava y prepara las verduras.",
+                    "Mezcla la harina, el huevo, el agua fría y la sal.",
+                    "Pasa los ingredientes por la mezcla.",
+                    "Con ayuda de un adulto, cocina en aceite caliente hasta dorar.",
+                    "Coloca sobre papel absorbente.",
+                    "Sirve cuando esté listo."
+                ]
+            },
+
+            {
+                nombre: "Sushi",
+                categoria: "Comidas - Japón",
+                emoji: "🍣",
+                descripcion: "Preparación japonesa de arroz sazonado con rellenos variados.",
+                ingredientes: [
+                    "2 tazas de arroz para sushi cocido",
+                    "2 cucharadas de vinagre de arroz",
+                    "Hojas de alga nori",
+                    "Pepino en tiras",
+                    "Aguacate en tiras",
+                    "Surimi"
+                ],
+                procedimiento: [
+                    "Mezcla el arroz con el vinagre de arroz.",
+                    "Coloca una hoja de alga nori sobre una esterilla.",
+                    "Extiende una capa de arroz.",
+                    "Agrega pepino, aguacate y surimi.",
+                    "Enrolla cuidadosamente.",
+                    "Corta en porciones con ayuda de un adulto.",
+                    "Sirve acompañado de salsa de soya."
+                ]
+            },
+
+            {
+                nombre: "Gyozas",
+                categoria: "Comidas - Japón",
+                emoji: "🥟",
+                descripcion: "Empanaditas japonesas rellenas de verduras y carne.",
+                ingredientes: [
+                    "12 discos para gyozas",
+                    "150 gramos de carne molida de cerdo o pollo",
+                    "1 taza de col picada",
+                    "1 zanahoria rallada",
+                    "1 cucharada de salsa de soya",
+                    "1 cucharadita de aceite"
+                ],
+                procedimiento: [
+                    "Mezcla la carne con la col y la zanahoria.",
+                    "Agrega la salsa de soya.",
+                    "Coloca un poco del relleno en cada disco.",
+                    "Humedece los bordes con agua.",
+                    "Dobla y sella las empanaditas.",
+                    "Con ayuda de un adulto, cocínalas en una sartén hasta que estén bien cocidas.",
+                    "Sirve con salsa de soya."
+                ]
+            },
+
+            {
+                nombre: "Karaage",
+                categoria: "Comidas - Japón",
+                emoji: "🍗",
+                descripcion: "Pollo japonés marinado con salsa de soya y jengibre.",
+                ingredientes: [
+                    "300 gramos de pollo en trozos",
+                    "2 cucharadas de salsa de soya",
+                    "1 cucharadita de jengibre rallado",
+                    "1 diente de ajo",
+                    "3 cucharadas de fécula de maíz",
+                    "Aceite para cocinar"
+                ],
+                procedimiento: [
+                    "Coloca el pollo en un recipiente.",
+                    "Agrega salsa de soya, jengibre y ajo.",
+                    "Deja marinar durante 20 minutos en el refrigerador.",
+                    "Cubre los trozos con fécula de maíz.",
+                    "Con ayuda de un adulto, cocina hasta que el pollo esté completamente cocido.",
+                    "Sirve acompañado de limón."
+                ]
+            },
+
+            {
+                nombre: "Omurice",
+                categoria: "Comidas - Japón",
+                emoji: "🍳",
+                descripcion: "Platillo japonés que combina arroz preparado con una tortilla de huevo.",
+                ingredientes: [
+                    "1 taza de arroz cocido",
+                    "2 huevos",
+                    "1/4 de cebolla",
+                    "1/2 taza de verduras picadas",
+                    "2 cucharadas de salsa de tomate",
+                    "Una pizca de sal"
+                ],
+                procedimiento: [
+                    "Pica la cebolla y las verduras.",
+                    "Mezcla el arroz con las verduras y la salsa de tomate.",
+                    "Bate los huevos con una pizca de sal.",
+                    "Con ayuda de un adulto, cocina una tortilla delgada.",
+                    "Coloca el arroz preparado en el centro.",
+                    "Dobla la tortilla sobre el arroz.",
+                    "Sirve con un poco de salsa de tomate."
+                ]
+            },
+
+            {
+                nombre: "Yakisoba",
+                categoria: "Comidas - Japón",
+                emoji: "🍜",
+                descripcion: "Fideos japoneses salteados con verduras y una salsa ligeramente dulce.",
+                ingredientes: [
+                    "200 gramos de fideos para yakisoba",
+                    "1 zanahoria",
+                    "1/2 taza de col",
+                    "1/2 cebolla",
+                    "2 cucharadas de salsa de soya",
+                    "1 cucharada de salsa inglesa",
+                    "1 cucharadita de aceite"
+                ],
+                procedimiento: [
+                    "Cocina los fideos siguiendo las instrucciones del paquete.",
+                    "Corta las verduras en tiras.",
+                    "Con ayuda de un adulto, cocina las verduras en una sartén.",
+                    "Agrega los fideos.",
+                    "Añade la salsa de soya y la salsa inglesa.",
+                    "Mezcla todo durante unos minutos.",
+                    "Sirve caliente."
+                ]
+            },
+
+            {
+                nombre: "Okonomiyaki",
+                categoria: "Comidas - Japón",
+                emoji: "🥞",
+                descripcion: "Tortilla japonesa preparada con col y una mezcla de harina y huevo.",
+                ingredientes: [
+                    "1 taza de col picada",
+                    "1/2 taza de harina",
+                    "1 huevo",
+                    "1/3 de taza de agua",
+                    "1/4 de cebolla picada",
+                    "Salsa para okonomiyaki",
+                    "Mayonesa"
+                ],
+                procedimiento: [
+                    "Coloca la harina en un recipiente.",
+                    "Agrega el huevo y el agua.",
+                    "Mezcla hasta obtener una masa.",
+                    "Añade la col y la cebolla.",
+                    "Con ayuda de un adulto, cocina la mezcla en una sartén por ambos lados.",
+                    "Coloca salsa para okonomiyaki encima.",
+                    "Decora con un poco de mayonesa y sirve."
+                ]
+            },
+
+            
+        // DIETAS: IDEAS DE ALIMENTACION VARIADA
+
+        {
+            nombre: "Bowl de frutas y yogur",
+            categoria: "Dietas",
+            emoji: "🍓",
+            descripcion: "Una combinación variada y colorida.",
+            ingredientes: [
+                "1 taza de yogur natural",
+                "Fresas",
+                "Plátano",
+                "Avena",
+                "Fruta de temporada"
+            ],
+            procedimiento: [
+                "Lava las frutas.",
+                "Corta las frutas en trozos.",
+                "Coloca el yogur en un recipiente.",
+                "Agrega las frutas.",
+                "Añade avena por encima.",
+                "Mezcla y disfruta."
+            ]
+        },
+        {
+            nombre: "Tostadas de aguacate",
+            categoria: "Dietas",
+            emoji: "🥑",
+            descripcion: "Una opción sencilla y variada.",
+            ingredientes: [
+                "2 rebanadas de pan",
+                "1 aguacate",
+                "Tomate",
+                "Limón",
+                "Una pizca de sal"
+            ],
+            procedimiento: [
+                "Tuesta ligeramente el pan.",
+                "Machaca el aguacate.",
+                "Agrega unas gotas de limón.",
+                "Unta el aguacate sobre el pan.",
+                "Añade tomate en trocitos.",
+                "Sirve y disfruta."
+            ]
+        },
+        {
+            nombre: "Bibimbap coreano",
+            categoria: "Dietas",
+            emoji: "🍚",
+            descripcion: "Arroz coreano acompañado de verduras variadas y huevo.",
+            ingredientes: [
+                "1 taza de arroz cocido",
+                "1 zanahoria",
+                "1/2 pepino",
+                "1 taza de espinacas",
+                "1 huevo",
+                "Salsa de soya al gusto"
+            ],
+            procedimiento: [
+                "Lava y corta las verduras.",
+                "Cocina las espinacas y la zanahoria.",
+                "Coloca el arroz en un recipiente.",
+                "Acomoda las verduras encima.",
+                "Agrega el huevo preparado con ayuda de un adulto.",
+                "Añade salsa de soya al gusto."
+            ]
+        },
+        {
+            nombre: "Kimbap de verduras",
+            categoria: "Dietas",
+            emoji: "🍙",
+            descripcion: "Rollitos coreanos de arroz rellenos de verduras.",
+            ingredientes: [
+                "1 taza de arroz cocido",
+                "2 hojas de alga nori",
+                "1 zanahoria",
+                "1 pepino",
+                "1 huevo",
+                "Aguacate"
+            ],
+            procedimiento: [
+                "Cocina el arroz y déjalo enfriar.",
+                "Corta las verduras en tiras.",
+                "Prepara el huevo con ayuda de un adulto.",
+                "Coloca el alga sobre una esterilla.",
+                "Extiende el arroz y agrega los ingredientes.",
+                "Enrolla y corta en porciones."
+            ]
+        },
+        {
+            nombre: "Bowl de tofu",
+            categoria: "Dietas",
+            emoji: "🥗",
+            descripcion: "Bowl coreano con tofu, arroz y verduras.",
+            ingredientes: [
+                "1 taza de arroz",
+                "150 g de tofu",
+                "1/2 zanahoria",
+                "1/2 pepino",
+                "1 taza de brócoli",
+                "Salsa de soya"
+            ],
+            procedimiento: [
+                "Lava y corta las verduras.",
+                "Cocina el brócoli y la zanahoria.",
+                "Corta el tofu en cubitos.",
+                "Con ayuda de un adulto, cocina el tofu.",
+                "Coloca el arroz en un bowl.",
+                "Agrega las verduras y el tofu."
+            ]
+        },
+        {
+            nombre: "Japchae",
+            categoria: "Dietas",
+            emoji: "🍜",
+            descripcion: "Fideos coreanos de camote con verduras salteadas.",
+            ingredientes: [
+                "150 g de fideos de camote",
+                "1 zanahoria",
+                "1/2 pimiento",
+                "1 taza de espinacas",
+                "1/2 cebolla",
+                "Salsa de soya"
+            ],
+            procedimiento: [
+                "Cocina los fideos siguiendo el paquete.",
+                "Lava y corta las verduras.",
+                "Con ayuda de un adulto, cocina las verduras.",
+                "Agrega los fideos.",
+                "Añade salsa de soya.",
+                "Mezcla y sirve."
+            ]
+        },
+        {
+            nombre: "Gyeran mari",
+            categoria: "Dietas",
+            emoji: "🍳",
+            descripcion: "Tortilla coreana enrollada con verduras picadas.",
+            ingredientes: [
+                "3 huevos",
+                "1/2 zanahoria",
+                "2 cucharadas de cebollín",
+                "Una pizca de sal"
+            ],
+            procedimiento: [
+                "Lava y pica las verduras.",
+                "Bate los huevos.",
+                "Agrega las verduras y la sal.",
+                "Con ayuda de un adulto, cocina la mezcla en una sartén.",
+                "Enrolla poco a poco la tortilla.",
+                "Corta en rodajas y sirve."
+            ]
+        },
+        {
+            nombre: "Bowl de pollo coreano",
+            categoria: "Dietas",
+            emoji: "🍗",
+            descripcion: "Pollo acompañado de arroz y vegetales frescos.",
+            ingredientes: [
+                "1 taza de arroz cocido",
+                "150 g de pollo cocido",
+                "1/2 zanahoria",
+                "1/2 pepino",
+                "1/2 taza de brócoli",
+                "Salsa de soya"
+            ],
+            procedimiento: [
+                "Corta el pollo cocido en trozos.",
+                "Lava y corta las verduras.",
+                "Cocina el brócoli y la zanahoria.",
+                "Coloca el arroz en un recipiente.",
+                "Agrega el pollo y las verduras.",
+                "Añade salsa de soya al gusto."
+            ]
+        },
+        {
+            nombre: "Tortitas coreanas de verduras",
+            categoria: "Dietas",
+            emoji: "🥞",
+            descripcion: "Tortitas saladas preparadas con verduras.",
+            ingredientes: [
+                "1/2 taza de harina",
+                "1/2 taza de agua",
+                "1 zanahoria",
+                "1/2 calabacita",
+                "1/4 de cebolla",
+                "Una pizca de sal"
+            ],
+            procedimiento: [
+                "Lava y corta las verduras.",
+                "Mezcla la harina con el agua.",
+                "Agrega las verduras y la sal.",
+                "Mezcla hasta integrar.",
+                "Con ayuda de un adulto, cocina porciones en una sartén.",
+                "Voltea para cocinar ambos lados."
+            ]
+        },
+        {
+            nombre: "Bowl de salmón",
+            categoria: "Dietas",
+            emoji: "🐟",
+            descripcion: "Arroz con salmón, aguacate y verduras.",
+            ingredientes: [
+                "1 taza de arroz cocido",
+                "120 g de salmón bien cocido",
+                "1/2 aguacate",
+                "1/2 pepino",
+                "1/2 zanahoria",
+                "Limón"
+            ],
+            procedimiento: [
+                "Lava y corta las verduras.",
+                "Prepara el salmón hasta que esté completamente cocido.",
+                "Coloca el arroz en un bowl.",
+                "Agrega el salmón en trozos.",
+                "Añade el aguacate y las verduras.",
+                "Agrega unas gotas de limón."
+            ]
+        },
+        {
+            nombre: "Sopa coreana de tofu",
+            categoria: "Dietas",
+            emoji: "🍲",
+            descripcion: "Sopa reconfortante con tofu y verduras.",
+            ingredientes: [
+                "150 g de tofu",
+                "2 tazas de caldo de verduras",
+                "1/2 calabacita",
+                "1 zanahoria",
+                "1/2 taza de champiñones",
+                "Cebollín"
+            ],
+            procedimiento: [
+                "Lava y corta las verduras.",
+                "Corta el tofu en cubos.",
+                "Coloca el caldo en una olla.",
+                "Con ayuda de un adulto, calienta el caldo.",
+                "Agrega las verduras y cocina hasta que estén suaves.",
+                "Añade el tofu y el cebollín.",
+                "Sirve caliente."
+            ]
+        },
+        {
+            nombre: "Camote con huevo",
+            categoria: "Dietas",
+            emoji: "🍠",
+            descripcion: "Platillo sencillo de camote acompañado de huevo.",
+            ingredientes: [
+                "1 camote mediano",
+                "2 huevos",
+                "1/2 taza de espinacas",
+                "Una pizca de sal",
+                "Un poco de aceite"
+            ],
+            procedimiento: [
+                "Lava el camote.",
+                "Cocínalo hasta que esté suave con ayuda de un adulto.",
+                "Prepara los huevos en una sartén.",
+                "Lava y cocina las espinacas.",
+                "Corta el camote en trozos.",
+                "Sirve acompañado de huevo y espinacas."
+            ]
+        }
+
+        ];
+
+
+        function mostrarCategorias() {
+
+            document.body.classList.add("fondo-recetas");
+
+            document.getElementById("inicio").hidden = true;
+            document.getElementById("recetas").hidden = true;
+            document.getElementById("detalle").hidden = true;
+            document.getElementById("categorias").hidden = false;
+
+            window.scrollTo(0, 0);
+        }
+
+        // MOSTRAR RECETAS DE LA CATEGORIA ELEGIDA
+
+        let categoriaActual = "Postres";
+        let volverA = "categorias";
+
+function mostrarRecetas(categoria) {
+
+    categoriaActual = categoria;
+
+    volverA = categoria.startsWith("Comidas - ")
+        ? "paises-comidas"
+        : "categorias";
+
+    document.getElementById("categorias").hidden = true;
+    document.getElementById("detalle").hidden = true;
+    document.getElementById("recetas").hidden = false;
+
+    document.getElementById("titulo-categoria").textContent =
+        "♡ " + categoria + " ♡";
+
+    const lista = document.getElementById("lista-recetas");
+
+    lista.innerHTML = "";
+
+    const seleccionadas = recetas
+        .map((receta, indice) => ({ receta, indice }))
+        .filter(item => item.receta.categoria === categoria);
+
+    seleccionadas.forEach(item => {
+
+        lista.innerHTML += `
+            <div class="contenedor-tarjeta">
+
+                <button class="tarjeta" onclick="verReceta(${item.indice})">
+
+                    <span class="emoji">${item.receta.emoji}</span>
+
+                    <h2>${item.receta.nombre}</h2>
+
+                    <p>${item.receta.descripcion}</p>
+
+                    <span class="ver-mas">Ver receta ♡</span>
+
+                </button>
+
+                <button
+                    class="btn-favoritos"
+                    onclick="cambiarFavorito(${item.indice})">
+
+                    ${favoritos.includes(item.indice)
+                        ? "♥ Quitar de favoritas"
+                        : "♡ Agregar a favoritas"}
+
+                </button>
+
+            </div>
+        `;
+
+    });
+
+    window.scrollTo(0, 0);
+}
+        // MOSTRAR INGREDIENTES Y PROCEDIMIENTO
+
+        
+function verReceta(indice) {
+    const receta = recetas[indice];
+
+    document.getElementById("recetas").hidden = true;
+    document.getElementById("favoritos").hidden = true;
+    document.getElementById("perfil-chef").hidden = true;
+    document.getElementById("detalle").hidden = false;
+
+    const miCalificacion = calificaciones[indice] || 0;
+
+    document.getElementById("contenido-detalle").innerHTML = `
+        <div class="caja-detalle">
+
+            <span class="emoji">${receta.emoji}</span>
+
+            <h1 class="titulo-principal">${receta.nombre}</h1>
+
+            <p>${receta.descripcion}</p>
+
+            <h2>♡ Ingredientes ♡</h2>
+
+            <ul>
+                ${receta.ingredientes.map(item => `<li>${item}</li>`).join("")}
+            </ul>
+
+            <h2>♡ Procedimiento ♡</h2>
+
+            <ol>
+                ${receta.procedimiento.map(paso => `<li>${paso}</li>`).join("")}
+            </ol>
+
+            <div class="caja-calificacion">
+                <h2>♡ Califica esta receta ♡</h2>
+
+                <p>¿Cuántas estrellas le das?</p>
+
+                <div class="estrellas-calificacion">
+                    ${[1, 2, 3, 4, 5].map(numero => `
+                        <button
+                            class="estrella"
+                            onclick="guardarCalificacion(${indice}, ${numero})"
+                            title="${numero} estrellas">
+                            ${numero <= miCalificacion ? "★" : "☆"}
+                        </button>
+                    `).join("")}
+                </div>
+
+                <p class="texto-calificacion">
+                    ${miCalificacion > 0
+                        ? "¡Gracias por calificar! ♡ Tu puntuación: " + miCalificacion + "/5"
+                        : "Todavía no has calificado esta receta."}
+                </p>
+            </div>
+
+        </div>
+    `;
+
+    window.scrollTo(0, 0);
+}
+
+
+
+        // VOLVER A LAS RECETAS
+
+        function volverRecetas() {
+
+            document.getElementById("detalle").hidden = true;
+            document.getElementById("recetas").hidden = false;
+
+            window.scrollTo(0, 0);
+        }
+
+
+        // VOLVER A LAS CATEGORIAS
+
+   function volverCategorias() {
+
+    document.getElementById("recetas").hidden = true;
+    document.getElementById("detalle").hidden = true;
+
+    if (volverA === "paises-comidas") {
+
+        document.getElementById("categorias").hidden = true;
+        document.getElementById("paises-comidas").hidden = false;
+
+    } else {
+
+        document.getElementById("paises-comidas").hidden = true;
+        document.getElementById("categorias").hidden = false;
+
+    }
+
+    window.scrollTo(0, 0);
+}
+
+        // VOLVER AL INICIO
+
+        function volverInicio() {
+
+            document.getElementById("categorias").hidden = true;
+            document.getElementById("recetas").hidden = true;
+            document.getElementById("detalle").hidden = true;
+            document.getElementById("inicio").hidden = false;
+
+            document.body.classList.remove("fondo-recetas");
+
+            window.scrollTo(0, 0);
+        }
+
+// ======================================
+// SISTEMA DE RECETAS FAVORITAS RIN & LEN
+// ======================================
+
+let favoritos = JSON.parse(
+    localStorage.getItem("favoritosRinLen") || "[]"
+);
+
+function guardarFavoritos() {
+    localStorage.setItem(
+        "favoritosRinLen",
+        JSON.stringify(favoritos)
+    );
+}
+
+function cambiarFavorito(indice) {
+    if (favoritos.includes(indice)) {
+        favoritos = favoritos.filter(id => id !== indice);
+    } else {
+        favoritos.push(indice);
+    }
+
+    guardarFavoritos();
+
+    mostrarRecetas(categoriaActual);
+}
+
+function mostrarFavoritos() {
+    document.getElementById("inicio").hidden = true;
+    document.getElementById("categorias").hidden = true;
+    document.getElementById("paises-comidas").hidden = true;
+    document.getElementById("recetas").hidden = true;
+    document.getElementById("detalle").hidden = true;
+    document.getElementById("favoritos").hidden = false;
+
+    const lista = document.getElementById("lista-favoritos");
+    lista.innerHTML = "";
+
+    if (favoritos.length === 0) {
+        lista.innerHTML = "<p>♡ Todavía no tienes recetas favoritas.</p>";
+        return;
+    }
+
+    favoritos.forEach(indice => {
+        const receta = recetas[indice];
+
+        if (!receta) return;
+
+        lista.innerHTML += `
+            <div class="tarjeta">
+                <span class="emoji">${receta.emoji}</span>
+                <h2>${receta.nombre}</h2>
+                <p>${receta.descripcion}</p>
+
+                <button onclick="verReceta(${indice})">
+                    Ver receta ♡
+                </button>
+
+                <button class="btn-favoritos"
+                    onclick="cambiarFavorito(${indice})">
+                    ♥ Quitar de favoritas
+                </button>
+            </div>
+        `;
+    });
+
+    window.scrollTo(0, 0);
+}
+
+// ======================================
+// SISTEMA DE CALIFICACIONES CON ESTRELLAS
+// RIN & LEN ♡
+// ======================================
+
+let calificaciones = JSON.parse(
+    localStorage.getItem("calificacionesRinLen") || "{}"
+);
+
+// GUARDAR CALIFICACION
+function guardarCalificacion(indice, estrellas) {
+    calificaciones[indice] = estrellas;
+
+    localStorage.setItem(
+        "calificacionesRinLen",
+        JSON.stringify(calificaciones)
+    );
+
+    verReceta(indice);
+}
+
+
+// ======================================
+// PERFIL DE CHEF RIN & LEN ♡
+// ======================================
+
+let perfilChef = JSON.parse(
+    localStorage.getItem("perfilChefRinLen") || "{}"
+);
+// AVATARES DISPONIBLES
+const avataresDisponibles = [
+    "chica_chef.png",
+    "chica_cupcake_mint.png",
+    "chica_gatito_cupcake.png",
+    "chica_zorrita_cerezsa.png",
+    "chico_navidad.png"
+];
+
+// AVATAR SELECCIONADO
+let avatarSeleccionadoChef = "chica_chef.png";
+
+// SELECCIONAR IMAGEN DEL AVATAR
+function seleccionarAvatarChef(nombreImagen) {
+
+    avatarSeleccionadoChef = nombreImagen;
+
+    // Quitar selección anterior
+    document.querySelectorAll(".avatar-opcion").forEach(boton => {
+        boton.classList.remove("avatar-elegido");
+    });
+
+    // Marcar el avatar elegido
+    const botonElegido = document.querySelector(
+        `.avatar-opcion[onclick="seleccionarAvatarChef('${nombreImagen}')"]`
+    );
+
+    if (botonElegido) {
+        botonElegido.classList.add("avatar-elegido");
+    }
+
+    // Mostrar la imagen seleccionada en el perfil
+    document.getElementById("avatar-perfil").innerHTML =
+        `<img src="rin_len_avatares/avatares/${nombreImagen}" alt="Mi avatar">`;
+}
+
+// MOSTRAR EL PERFIL
+function mostrarPerfilChef() {
+
+    document.getElementById("inicio").hidden = true;
+    document.getElementById("categorias").hidden = true;
+    document.getElementById("paises-comidas").hidden = true;
+    document.getElementById("recetas").hidden = true;
+    document.getElementById("detalle").hidden = true;
+    document.getElementById("favoritos").hidden = true;
+    document.getElementById("perfil-chef").hidden = false;
+
+ 
+    // Cargar datos guardados
+    document.getElementById("nombre-chef").value =
+        perfilChef.nombre || "";
+
+    // Comprobar que el avatar guardado exista
+    const avataresDisponibles = [
+        "chica_chef.png",
+        "chica_cupcake_mint.png",
+        "chica_gatita_cereza.png",
+        "chica_zorrita_postre.png",
+        "chico_navidad.png"
+    ];
+
+    avatarSeleccionadoChef = avataresDisponibles.includes(perfilChef.avatar)
+        ? perfilChef.avatar
+        : "chica_chef.png";
+
+    // Mostrar la foto del perfil
+    document.getElementById("avatar-perfil").innerHTML =
+        `<img src="rin_len_avatares/avatares/${avatarSeleccionadoChef}" alt="Mi avatar">`;
+
+    // Marcar el avatar seleccionado
+    document.querySelectorAll(".avatar-opcion").forEach(boton => {
+        boton.classList.remove("avatar-elegido");
+
+        if (boton.getAttribute("onclick").includes(avatarSeleccionadoChef)) {
+            boton.classList.add("avatar-elegido");
+        }
+    });
+
+    document.getElementById("descripcion-chef").value =
+        perfilChef.descripcion || "";
+
+    document.getElementById("nombre-perfil").textContent =
+        perfilChef.nombre || "Mi pequeño rincón de cocina";
+
+    document.getElementById("descripcion-perfil").textContent =
+        perfilChef.descripcion || "¡Bienvenida a mi cocina! ♡";
+
+    // Obtener recetas favoritas válidas
+    const favoritasValidas = favoritos.filter(indice => recetas[indice]);
+
+    // Obtener recetas calificadas válidas
+    const calificadas = Object.keys(calificaciones)
+        .filter(indice =>
+            recetas[indice] &&
+            Number(calificaciones[indice]) >= 1 &&
+            Number(calificaciones[indice]) <= 5
+        );
+
+    // Calcular promedio
+    const suma = calificadas.reduce(
+        (total, indice) => total + Number(calificaciones[indice]),
+        0
+    );
+
+    const promedio = calificadas.length
+        ? (suma / calificadas.length).toFixed(1)
+        : "0";
+
+    // Mostrar estadísticas
+    document.getElementById("total-favoritas").textContent =
+        favoritasValidas.length;
+
+    document.getElementById("total-calificadas").textContent =
+        calificadas.length;
+
+    document.getElementById("promedio-chef").textContent =
+        promedio;
+
+    // Mostrar favoritas
+    const listaFavoritas = document.getElementById(
+        "perfil-lista-favoritas"
+    );
+
+    listaFavoritas.innerHTML = "";
+
+    if (favoritasValidas.length === 0) {
+        listaFavoritas.innerHTML =
+            "<p>Aún no tienes recetas favoritas. ¡Guarda algunas! ♡</p>";
+    } else {
+        favoritasValidas.forEach(indice => {
+            const receta = recetas[indice];
+
+            listaFavoritas.innerHTML += `
+                <div class="receta-perfil">
+                    <span>${receta.emoji}</span>
+                    <strong>${receta.nombre}</strong>
+                    <button class="boton-redireccion"
+                        onclick="verReceta(${indice})">
+                        Ver receta ♡
+                    </button>
+                </div>
+            `;
+        });
+    }
+
+    // Mostrar recetas calificadas
+    const listaCalificadas = document.getElementById(
+        "perfil-lista-calificadas"
+    );
+
+    listaCalificadas.innerHTML = "";
+
+    if (calificadas.length === 0) {
+        listaCalificadas.innerHTML =
+            "<p>Todavía no has calificado ninguna receta. ¡Anímate! ★</p>";
+    } else {
+        calificadas.forEach(indice => {
+            const receta = recetas[indice];
+            const estrellas = Number(calificaciones[indice]);
+
+            listaCalificadas.innerHTML += `
+                <div class="receta-perfil">
+                    <span>${receta.emoji}</span>
+                    <strong>${receta.nombre}</strong>
+                    <span class="estrellas-perfil">
+                        ${"★".repeat(estrellas)}${"☆".repeat(5 - estrellas)}
+                    </span>
+                    <button class="boton-redireccion"
+                        onclick="verReceta(${indice})">
+                        Ver receta ♡
+                    </button>
+                </div>
+            `;
+        });
+    }
+
+    window.scrollTo(0, 0);
+}
+
+
+
+
+// GUARDAR LOS DATOS DEL PERFIL
+function guardarPerfilChef() {
+
+    perfilChef = {
+        nombre: document.getElementById("nombre-chef").value.trim(),
+        avatar: avatarSeleccionadoChef,
+        descripcion: document.getElementById("descripcion-chef").value.trim()
+    };
+
+    localStorage.setItem("perfilChefRinLen", JSON.stringify(perfilChef));
+
+    mostrarPerfilChef();
+
+    alert("¡Tu perfil de chef se guardó correctamente! ♡");
+}
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,611 @@
+
+@font-face {
+    font-family: 'Milesdane';
+    src: url('./fonts/Milesdane.otf') format('opentype');
+}
+
+body {
+    font-family: 'Milesdane', serif;
+}
+
+.titulo-principal {
+    font-family: 'Milesdane', serif;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("rinylen.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* FONDO DE LA SECCIÓN DE RECETAS */
+body.fondo-recetas {
+    background-image: url("fondoicon.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contenedor {
+    text-align: center;
+    padding: 30px;
+    max-width: 600px;
+    background-color: rgba(255, 248, 230, 0.93);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(38, 54, 79, 0.25);
+    backdrop-filter: blur(5px);
+}
+
+.boton-redireccion {
+    background-color: #DFA8A5;
+    color: #26364F;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* TARJETAS DE LOS POSTRES */
+.tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* CUADRADOS ROSAS */
+.tarjeta {
+    background: linear-gradient(135deg, #ffe0eb, #f8b8d0);
+    color: #70465a;
+    border: 3px solid #f4a6c4;
+    border-radius: 22px;
+    padding: 25px;
+    width: 220px;
+    min-height: 190px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(180, 90, 130, 0.20);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-family: 'Milesdane', serif;
+}
+
+/* EFECTO AL PASAR EL RATON */
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 22px rgba(180, 90, 130, 0.35);
+    background: linear-gradient(135deg, #ffd1e2, #f5a5c5);
+}
+
+/* EMOJIS DE LOS POSTRES */
+.tarjeta .emoji {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* TITULOS */
+.tarjeta h2 {
+    color: #a64d79;
+    font-size: 22px;
+}
+
+/* DESCRIPCIONES */
+.tarjeta p {
+    color: #70465a;
+    font-size: 15px;
+}
+
+/* TEXTO VER RECETA */
+.ver-mas {
+    display: inline-block;
+    margin-top: 10px;
+    color: #a64d79;
+    font-weight: bold;
+}
+
+/* PALETA DE COLORES PARA LAS RECETAS */
+:root {
+    --rosa-crema: #FCE4E1;
+    --rosa-pastel: #F7C6C8;
+    --rosa-antiguo: #E9A0A8;
+    --rosa-oscuro: #B96F70;
+    --cafe-rosado: #874F4A;
+    --marfil: #FFF4EF;
+}
+
+/* FICHA DE CADA RECETA */
+.caja-detalle {
+    background: rgba(255, 244, 239, 0.97);
+    color: var(--cafe-rosado);
+    max-width: 750px;
+    width: 90%;
+    margin: 30px auto;
+    padding: 35px;
+    border: 4px double var(--rosa-antiguo);
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(135, 79, 74, 0.20);
+    box-sizing: border-box;
+}
+
+/* TITULO PRINCIPAL DEL POSTRE */
+.caja-detalle h1 {
+    color: var(--rosa-oscuro);
+    text-align: center;
+    font-size: 36px;
+    border-bottom: 3px solid var(--rosa-pastel);
+    padding-bottom: 15px;
+}
+
+/* TITULOS DE INGREDIENTES Y PROCEDIMIENTO */
+.caja-detalle h2 {
+    color: var(--rosa-oscuro);
+    font-size: 27px;
+    border-bottom: 2px solid var(--rosa-pastel);
+    padding-bottom: 8px;
+    margin-top: 30px;
+}
+
+/* TEXTO Y DESCRIPCION */
+.caja-detalle p {
+    color: var(--cafe-rosado);
+    text-align: center;
+    font-size: 17px;
+}
+
+/* INGREDIENTES Y PASOS */
+.caja-detalle ul,
+.caja-detalle ol {
+    color: var(--cafe-rosado);
+    line-height: 1.9;
+    font-size: 17px;
+    padding-left: 30px;
+}
+
+/* COLOR DE LOS PUNTOS */
+.caja-detalle li::marker {
+    color: var(--rosa-oscuro);
+    font-weight: bold;
+}
+
+/* EMOJI DEL POSTRE */
+.caja-detalle .emoji {
+    display: block;
+    text-align: center;
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+/* BOTON PARA VOLVER */
+.pagina-detalle .boton-redireccion {
+    background: var(--rosa-antiguo);
+    color: white;
+    border: 2px solid var(--rosa-oscuro);
+    border-radius: 20px;
+    font-family: 'Milesdane', serif;
+    cursor: pointer;
+}
+
+.pagina-detalle .boton-redireccion:hover {
+    background: var(--rosa-oscuro);
+}
+
+/* ADAPTACION PARA CELULARES */
+@media (max-width: 600px) {
+    .caja-detalle {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .caja-detalle h1 {
+        font-size: 28px;
+    }
+
+    .caja-detalle h2 {
+        font-size: 23px;
+    }
+}
+
+/* COLOR GENERAL DE LOS TEXTOS NORMALES */
+body {
+    color: #874F4A;
+}
+
+/* PARRAFOS NORMALES */
+p {
+    color: #874F4A;
+}
+
+/* LISTAS Y TEXTOS DE RECETAS */
+li {
+    color: #874F4A;
+}
+
+/* TEXTOS NORMALES DENTRO DE LAS SECCIONES */
+.inicio,
+.pagina-recetas,
+.pagina-detalle {
+    color: #874F4A;
+}
+
+/* DESCRIPCIONES NORMALES */
+.caja-detalle p {
+    color: #874F4A;
+}
+
+/* BOTONES VIDEOJUEGO RIN & LEN */
+
+.boton-redireccion {
+    background: linear-gradient(
+        180deg,
+        #F9DDE0,
+        #D9B9DF,
+        #B9B4E2
+    );
+
+    color: #704B75;
+    font-family: 'Milesdane', serif;
+    font-size: 19px;
+    font-weight: bold;
+
+    padding: 14px 32px;
+
+    border: 3px solid #A95A91;
+    border-radius: 18px;
+
+    box-shadow:
+        0 6px 0 #A95A91,
+        0 9px 15px rgba(169, 90, 145, 0.20);
+
+    cursor: pointer;
+    transition: all 0.18s ease;
+}
+
+/* CUANDO PASAS EL MOUSE */
+
+.boton-redireccion:hover {
+    background: linear-gradient(
+        180deg,
+        #FFF0EF,
+        #EACBE8,
+        #C9C4EF
+    );
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 0 #A95A91,
+        0 13px 18px rgba(169, 90, 145, 0.25);
+}
+
+/* CUANDO PRESIONAS */
+
+.boton-redireccion:active {
+    transform: translateY(5px);
+
+    box-shadow:
+        0 1px 0 #A95A91,
+        0 3px 6px rgba(169, 90, 145, 0.20);
+}
+/* CONTORNO AL SELECCIONAR */
+
+.boton-redireccion:focus-visible {
+    outline: 3px dashed #8585B8;
+    outline-offset: 5px;
+}
+/* BOTON FAVORITAS - NUBE ROSADA */
+.btn-favoritos {
+    background-color: #fff0f5;
+    color: #c46b91;
+    border: 2px solid #f8d5e3;
+    border-radius: 28px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(196, 107, 145, 0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-favoritos:hover {
+    background-color: #fce1eb;
+    color: #ad527c;
+    border-color: #efbdd1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(196, 107, 145, 0.25);
+}
+.contenedor-tarjeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.contenedor-tarjeta .tarjeta {
+    width: 100%;
+}
+
+.btn-favoritos {
+    background-color: #fff0f5;
+    color: #c46b91;
+    border: 2px solid #f8d5e3;
+    border-radius: 28px;
+    padding: 10px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-favoritos:hover {
+    background-color: #fce1eb;
+    transform: translateY(-2px);
+}
+
+/* =================================
+   CALIFICACIONES RIN & LEN ♡
+================================= */
+
+.caja-calificacion {
+    margin: 35px auto;
+    padding: 25px;
+    max-width: 550px;
+    background-color: #fff0f5;
+    border: 2px solid #f8d5e3;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(220, 150, 180, 0.15);
+}
+
+.caja-calificacion h2 {
+    color: #c46b91;
+    margin-bottom: 12px;
+}
+
+.caja-calificacion p {
+    color: #8d5870;
+}
+
+.estrellas-calificacion {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.estrella {
+    background: transparent;
+    border: none;
+    color: #f2b84b;
+    font-size: 38px;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 3px;
+}
+
+.estrella:hover {
+    transform: scale(1.2);
+}
+
+.texto-calificacion {
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* ======================================
+   PERFIL DE CHEF RIN & LEN ♡
+====================================== */
+
+.perfil-chef-contenedor {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #fffafd;
+    border: 2px solid #f8d5e3;
+    border-radius: 28px;
+    box-shadow: 0 5px 18px rgba(220, 150, 180, 0.15);
+    text-align: center;
+}
+
+.perfil-chef-avatar {
+    width: 115px;
+    height: 115px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0f5;
+    border: 3px solid #f8d5e3;
+    border-radius: 50%;
+    font-size: 65px;
+}
+
+.perfil-chef-contenedor h2 {
+    color: #c46b91;
+    margin-top: 25px;
+}
+
+.perfil-chef-formulario {
+    max-width: 500px;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.perfil-chef-formulario label {
+    color: #a75e7d;
+    font-weight: bold;
+}
+
+.perfil-chef-formulario input,
+.perfil-chef-formulario select,
+.perfil-chef-formulario textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 2px solid #f3c9da;
+    border-radius: 15px;
+    background-color: #fff5f9;
+    color: #80566a;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.perfil-chef-formulario textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.estadisticas-chef {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 25px 0;
+}
+
+.estadistica-chef {
+    padding: 18px 8px;
+    background-color: #fff0f5;
+    border: 1px solid #f8d5e3;
+    border-radius: 20px;
+}
+
+.estadistica-chef span {
+    display: block;
+    color: #d47b9e;
+    font-size: 27px;
+}
+
+.estadistica-chef strong {
+    display: block;
+    color: #bd648c;
+    font-size: 25px;
+    margin: 5px 0;
+}
+
+.estadistica-chef p {
+    margin: 0;
+    color: #94677d;
+    font-size: 13px;
+}
+
+.receta-perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+    padding: 15px;
+    background-color: #fff0f5;
+    border: 1px solid #f8d5e3;
+    border-radius: 18px;
+    color: #98617b;
+}
+
+.receta-perfil > span:first-child {
+    font-size: 25px;
+}
+
+.receta-perfil strong {
+    color: #bd648c;
+}
+
+.estrellas-perfil {
+    color: #e9ad38;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 500px) {
+    .perfil-chef-contenedor {
+        padding: 15px;
+        margin: 15px 8px;
+    }
+
+    .estadisticas-chef {
+        gap: 6px;
+    }
+
+    .estadistica-chef {
+        padding: 12px 4px;
+    }
+
+    .receta-perfil {
+        flex-direction: column;
+    }
+}
+
+/* GALERÍA DE AVATARES */
+.galeria-avatares {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    max-width: 550px;
+    margin: 20px auto;
+}
+
+.avatar-opcion {
+    width: 100%;
+    height: 145px;
+    padding: 5px;
+    border: 3px solid #f8d5e3;
+    border-radius: 18px;
+    background: #fff0f5;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.avatar-opcion img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.avatar-opcion:hover {
+    transform: scale(1.04);
+}
+
+.avatar-opcion.avatar-elegido {
+    border: 4px solid #d96f9c;
+    background: #fbd5e5;
+    box-shadow: 0 0 12px #f3b5cf;
+}
+
+/* FOTO GRANDE DEL PERFIL */
+.perfil-chef-avatar {
+    width: 160px;
+    height: 160px;
+    margin: 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.perfil-chef-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+    .galeria-avatares {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
